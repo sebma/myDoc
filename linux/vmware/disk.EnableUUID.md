@@ -1,7 +1,7 @@
 Si y a des errors "failed to get .* uid" dans le journal de `multipathd.service` :
  
 ```shell
-journalctl -u multipathd -b -0 | grep failed | head
+journalctl -u multipathd -b -0 | grep failed | tail
 ```
 On peut vérifier aussi si la commande "multipath" renvoi ces erreurs :
  
