@@ -15,7 +15,7 @@ ls -l /dev/disk/by-uuid/ | grep sd[a-z]*1
 ```
 Une solution disk.EnableUUID=TRUE dans le vmx OU blacklister le "VMware Virtual disk" dans la conf multipath :  https://bugs.launchpad.net/ubuntu/+source/multipath-tools/+bug/1875594/comments/17 :
 ```shell
-sudo tee /etc/multipath/blacklist-VMware-Virtual-disk-in-multipathd.conf <<EOF
+sudo tee /etc/multipath/conf.d/blacklist-VMware-Virtual-disk-in-multipathd.conf <<EOF
 blacklist {
 	device {
 		vendor "VMware"
