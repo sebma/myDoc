@@ -15,3 +15,4 @@ gu}  : Change to end of paragraph to lower case
 gU5j : Change 5 lines below to upper case
 gu3k : Change 3 lines above to lower case
 ```
+cf. https://stackoverflow.com/a/2966034/5649639
