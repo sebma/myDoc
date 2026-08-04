@@ -1,5 +1,5 @@
 # Vim Switch case shortcuts :
-
+```
 ~    : Changes the case of current character
 guu  : Change current line from upper to lower.
 gUU  : Change current LINE from lower to upper.
@@ -14,3 +14,4 @@ gU)  : Change until end of sentence to upper case
 gu}  : Change to end of paragraph to lower case
 gU5j : Change 5 lines below to upper case
 gu3k : Change 3 lines above to lower case
+```
