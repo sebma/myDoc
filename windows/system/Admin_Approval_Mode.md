@@ -1,7 +1,7 @@
 Admin Approval Mode is a Windows User Account Control setting that can elevate privileges when an approval prompt appears.
 
 ```pwsh
-New-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -n EnableLUA -pr Dword
+New-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -n EnableLUA -v 1 -pr Dword
 ```
 To check if it's enabled :
 
