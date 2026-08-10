@@ -8,7 +8,7 @@ You need to `EnableLUA` via GPO :
 
 Or registry setting :
 ```pwsh
-New-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -n EnableLUA -v 1 -pr Dword
+New-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -n EnableLUA -v 1 -pr Dword || sp HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -n EnableLUA -v 1
 ```
 To check if it's enabled :
 
