@@ -10,6 +10,7 @@ New-ItemProperty HKLM:\System\CurrentControlSet\Services\Tcpip\Parameters -n Kee
 gpv HKLM:\System\CurrentControlSet\Services\Tcpip\Parameters -n KeepAliveTime
 
 ```
+cf. [Additional Registry Entries | Microsoft Learn - KeepAliveTime](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349797(v=ws.10)?redirectedfrom=MSDN#keepalivetime)
 ## Exemple de pamametrage KeepAlive sur Linux :
 ```shell
 sysctl net.ipv4.tcp_keepalive_time net.ipv4.tcp_keepalive_intvl net.ipv4.tcp_keepalive_probes
