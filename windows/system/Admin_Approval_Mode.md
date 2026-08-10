@@ -1,6 +1,6 @@
 Admin Approval Mode is a Windows User Account Control setting that can elevate privileges when an approval prompt appears :
 
-<img width="311" height="229" alt="image_paste851311" src="https://github.com/user-attachments/assets/2b5a2f49-425d-49c8-87e8-ecd449f50e03" />
+<img width="326" height="221" alt="image" src="https://github.com/user-attachments/assets/5049adef-9f71-43a4-8133-02c6b11b743a" />
 
 You need to EnableLUA via GPO :
 
