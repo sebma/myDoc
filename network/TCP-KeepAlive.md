@@ -16,4 +16,4 @@ sysctl net.ipv4.tcp_keepalive_time net.ipv4.tcp_keepalive_intvl net.ipv4.tcp_kee
 sudo sysctl -w net.ipv4.tcp_keepalive_time=$((30*60)) net.ipv4.tcp_keepalive_intvl=$((30*60))
 
 ```
-cf. [Using TCP keepalive under Linux](https://tldp.org/HOWTO/TCP-Keepalive-HOWTO/usingkeepalive.html) ou (Configuring KeepAlive for better performance - Linux Bash](https://linuxbash.sh/post/configuring-keepalive-for-better-performance)
+cf. [Using TCP keepalive under Linux](https://tldp.org/HOWTO/TCP-Keepalive-HOWTO/usingkeepalive.html) ou [Configuring KeepAlive for better performance - Linux Bash](https://linuxbash.sh/post/configuring-keepalive-for-better-performance)
