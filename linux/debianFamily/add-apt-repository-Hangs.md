@@ -1,4 +1,4 @@
-# `add-apt-repository -r` Hangs on Ubuntu :
+# If `add-apt-repository -r` hangs on Ubuntu :
 Do this :
 ```shell
 pgrep dpkg >/dev/null || sudo rm -vf /var/lib/dpkg/lock
