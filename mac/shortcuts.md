@@ -1,4 +1,5 @@
 # macOS keyboard shortcuts
+`` ` `` : `£` Key + Space
 
 `~` : Option + `n` + Space
 
@@ -25,7 +26,5 @@ Hide Window : Command + `h`
 Switch between windows of different apps : Command + Tab
 
 Switch between windows of same app : Command + `` ` ``
-
-`` ` `` : `£` Key + Space
 
 See more at [Mac keyboard shortcuts - Apple Support](https://support.apple.com/en-us/102650)
