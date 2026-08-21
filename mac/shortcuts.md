@@ -24,7 +24,7 @@ Hide Window : Command + `h`
 
 Switch between windows of different apps : Command + Tab
 
-Switch between windows of same app : Command + ``` ``
+Switch between windows of same app : Command + `````
 
 `` ` `` : `£` Key + Space
 
