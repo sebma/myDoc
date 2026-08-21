@@ -1,15 +1,17 @@
 # macOS keyboard shortcuts
 `~` : Option + n + Space
 
-`|` : Option + Shift + l
+`|` : Option + Shift + `l`
 
-`[` : Option + Shift + (
+`[` : Option + Shift + `(`
 
-`]` : Option + Shift + )
+`]` : Option + Shift + `)`
 
-`{` : Option + (
+`{` : Option + `(`
 
-`}` : Option + )
+`}` : Option + `)`
+
+Switch between windows of same app : Command + ```
 
 Full-screen Screenshot : Command + Shift + 3
 
