@@ -11,7 +11,11 @@
 
 `}` : Option + `)`
 
-Switch between windows of same app : Command + ```
+`\` : Option + Shift + `/`
+
+Switch between windows of same app : Command + `\``
+
+Switch between windows of different apps : Command + Tab
 
 Full-screen Screenshot : Command + Shift + 3
 
