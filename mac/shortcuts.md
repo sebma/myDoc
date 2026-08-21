@@ -13,7 +13,7 @@
 
 `\` : Option + Shift + `/`
 
-Switch between windows of same app : Command + `\``
+Switch between windows of same app : Command + `
 
 Switch between windows of different apps : Command + Tab
 
