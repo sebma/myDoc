@@ -33,4 +33,8 @@ Open Mission Control : Control + `Up Arrow`
 
 Show all windows of the front app : Control + `Down Arrow`
 
+Move to next virtual desktop : Control + `Right Arrow`
+
+Move to previous virtual desktop : Control + `Left Arrow`
+
 See more at [Mac keyboard shortcuts - Apple Support](https://support.apple.com/en-us/102650)
