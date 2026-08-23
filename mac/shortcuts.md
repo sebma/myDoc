@@ -29,4 +29,8 @@ Switch between windows of different apps : Command + Tab
 
 Switch between windows of same app : Command + `` ` ``
 
+Open Mission Control : Control + `Up Arrow`
+
+Show all windows of the front app : Control + `Down Arrow`
+
 See more at [Mac keyboard shortcuts - Apple Support](https://support.apple.com/en-us/102650)
