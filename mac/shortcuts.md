@@ -17,7 +17,7 @@
 
 Lock the session : Ctrl + Command + `q`
 
-Full-screen Screenshot : Command + Shift + `3`
+Capture entire screen : Command + Shift + `3`
 
 Region Screenshot : Command + Shift + `4`
 
