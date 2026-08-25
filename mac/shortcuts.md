@@ -21,7 +21,7 @@ Capture entire screen : Command + Shift + `3`
 
 Region Screenshot : Command + Shift + `4`
 
-Screenshot Tool : Command + Shift + `5` (See [Take a screenshot on Mac - Apple Support](https://support.apple.com/en-us/102646 )
+Screenshot Tool : Command + Shift + `5` (See [Take a screenshot on Mac - Apple Support](https://support.apple.com/en-us/102646) )
 
 Current Window Screenshot : Shift + Command + `4`, then `Space bar`
 
