@@ -23,7 +23,7 @@ Region Screenshot : Command + Shift + `4`
 
 Screenshot Tool : Command + Shift + `5`
 
-Current Window Screenshot : Shift-Command-4, then Space bar
+Current Window Screenshot : Shift + Command + `4`, then `Space bar`
 
 Hide Window : Command + `h`
 
