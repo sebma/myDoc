@@ -1,6 +1,6 @@
 # Recursive file delation with fdfind
 
-How to recursively delete files with fdfind according to a pattern, type these commands :
+How to recursively delete files with [fdfind](https://github.com/sharkdp/fd) according to a pattern, type these commands :
 ```shell
 pattern="t.t"
 path=~/tmp?/
@@ -27,7 +27,7 @@ removed '/home/sebastien/tmp3/smem_snapshot_AFTER_login.txt'
 removed '/home/sebastien/tmp3/smem_snapshot_20220227.txt'
 removed '/home/sebastien/tmp3/systemd_--user__not_killed.txt'
 ```
-ATTENTION : Be every carefully to place `-x rm` at the end of this command, or else this happens (I've lost 25G of data in less than 2 seconds !) :
+ATTENTION : Be every careful to place `-x rm` at the end of this command or else data loss happens with [fdfind](https://github.com/sharkdp/fd) version 9.0.0 (I've lost 25G of data in less than 2 seconds !!!) :
 ```shell
 rm: cannot remove 'yt-dlp_errors': No such file or directory
 rm: cannot remove '/multimedia/': Is a directory
