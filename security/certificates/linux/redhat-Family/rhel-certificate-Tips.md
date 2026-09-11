@@ -5,7 +5,7 @@ To AC certificates on RedHat Linux Family, type this commands :
 $ sudo yum install -v ca-certificates -y || sudo dnf install -v ca-certificates -y
 $ sudo cp -piv *.crt /etc/pki/ca-trust/source/anchors/
 $ sudo update-ca-trust extract
-$ trust list  | grep label:
+$ trust list | grep label:
 ```
 <details>
 <summary>Source information</summary>
