@@ -12,11 +12,11 @@ keyStore=$JAVA_HOME/lib/security/cacerts
 keytool -list -keystore $keyStore | grep trustedCertEntry
 ```
 
-## To list certificates Common Names :
+## To list certificates Aliases, Owner and Issuer Common Names :
 ```shell
 JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 | awk '/java.home/{printf$NF}')
 keyStore=$JAVA_HOME/lib/security/cacerts 
-keytool -list -keystore $keyStore -v | grep CN
+keytool -list -keystore $keyStore -v | egrep 'Alias|Owner|Issuer'
 ```
 
 ## Change alias on one certificate on the Java system keystore :
