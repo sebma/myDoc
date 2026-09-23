@@ -8,7 +8,7 @@ sudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
 sudo scoop install -g wget putty-cac podman podman-tui kubectl kubectx kubens k9s helm kubetui
 sudo choco install -y vscode vscodium pulsar
 wget.exe --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
-Expand-Archive vsphere-plugin.zip "$env:windir/system32"
+Expand-Archive vsphere-plugin.zip "$ENV:windir/system32"
 move .\bin\kubectl-vsphere.exe .
 rm bin\kubectl.exe
 rmdir bin
