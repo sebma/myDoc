@@ -1,6 +1,6 @@
-# Kubernetes Initialization
+# Kubernetes vSphere Initialization
 
-## Kubernetes Initialization on Windows
+## Kubernetes vSphere Initialization on Windows
 
 ```pwsh
 $TKG_ClusterIP=172.16.0.1
@@ -14,7 +14,7 @@ rm bin\kubectl.exe
 rmdir bin
 
 ```
-## Kubernetes Initialization on Ubuntu
+## Kubernetes vSphere Initialization on Ubuntu
 
 ```shell
 TKG_ClusterIP=172.16.0.1
