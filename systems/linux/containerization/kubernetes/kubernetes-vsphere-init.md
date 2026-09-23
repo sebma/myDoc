@@ -17,9 +17,15 @@ gsudo rmdir bin
 ## Kubernetes vSphere Initialization on Ubuntu
 
 ```shell
-TSC_ClusterIP=172.16.0.1
+TSC_ClusterIP=172.17.0.1
 which wget >/dev/null || sudo apt install wget -Vy
 which unzip >/dev/null || sudo apt install unzip -Vy
+
+# Be careful of the dockerd bridge network 172.17.0.0/16 which can overide the IP below
+# Check with this command : sudo docker network inspect bridge | jq -r '.[].IPAM.Config[].Subnet'
+# If so you have to stop dockerd and shutdown the docker0 interface, like this :
+# sudo systemctl stop docker.service docker.socket
+# sudo ip link set docker0 down
 wget -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/linux-amd64/vsphere-plugin.zip
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl bin/kubectl-vsphere
 
