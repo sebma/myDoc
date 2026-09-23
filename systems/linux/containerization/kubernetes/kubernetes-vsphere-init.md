@@ -18,6 +18,8 @@ gsudo rmdir bin
 
 ```shell
 TSC_ClusterIP=172.16.0.1
+which wget >/dev/null || sudo apt install wget -Vy
+which unzip >/dev/null || sudo apt install unzip -Vy
 wget --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/linux-amd64/vsphere-plugin.zip
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl bin/kubectl-vsphere
 
