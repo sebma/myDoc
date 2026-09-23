@@ -23,7 +23,9 @@ which unzip >/dev/null || sudo apt install unzip -Vy
 wget --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/linux-amd64/vsphere-plugin.zip
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl bin/kubectl-vsphere
 
-sudo snap install kubectl kubectx helm
+pkgList="kubectl kubectx helm"
+for pkg in $pkgList; do sudo snap install "$pkg" --classic;done
+
 wget https://github.com/derailed/k9s/releases/latest/download/k9s_linux_amd64.deb
 sudo apt install -V ./k9s_linux_amd64.deb
 wget https://github.com/nklmilojevic/sofka/releases/download/v0.28.1/sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz
