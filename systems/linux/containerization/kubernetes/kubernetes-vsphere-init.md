@@ -28,3 +28,9 @@ wget https://github.com/nklmilojevic/sofka/releases/download/v0.28.1/sofka-v0.28
 sudo tar -C /usr/local/bin/ -xvf sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz sofka
  
 ```
+
+Then you can login to your TKG :
+```shell
+set -o nounset
+kubectl vsphere login --server=$TKG_ClusterIP --insecure-skip-tls-verify
+```
