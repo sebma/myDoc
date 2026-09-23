@@ -4,14 +4,14 @@
 
 ```pwsh
 $TSC_ClusterIP=172.16.0.1
-sudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
-sudo scoop install -g wget putty-cac podman podman-tui kubectl kubectx kubens k9s helm kubetui
-sudo choco install -y vscode vscodium pulsar
-wget.exe --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
-Expand-Archive vsphere-plugin.zip "$ENV:windir/system32"
-move .\bin\kubectl-vsphere.exe .
-rm bin\kubectl.exe
-rmdir bin
+gsudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
+gsudo scoop install -g wget putty-cac podman podman-tui kubectl kubectx kubens k9s helm kubetui
+gsudo choco install -y vscode vscodium pulsar
+gsudo wget.exe --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
+gsudo Expand-Archive vsphere-plugin.zip "$ENV:windir/system32"
+gsudo move .\bin\kubectl-vsphere.exe .
+gsudo rm bin\kubectl.exe
+gsudo rmdir bin
 
 ```
 ## Kubernetes vSphere Initialization on Ubuntu
