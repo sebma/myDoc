@@ -9,5 +9,5 @@ sudo docker stats --no-stream | { read -r header; printf '%s\n' "$header"; sort 
 # List docker bridge network cidr :
 ```shell
 sudo docker network ls -f driver=bridge | awk '!/^NETWORK/{print$2;exit}'
-sudo docker network inspect bridge | jq -r '.[].IPAM.Config[]. Subnet'
+sudo docker network inspect bridge | jq -r '.[].IPAM.Config[].Subnet'
 ```
