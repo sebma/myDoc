@@ -6,3 +6,7 @@ sudo docker stats --no-stream | { read -r header; printf '%s\n' "$header"; sort 
 ```shell
 sudo docker stats --no-stream | { read -r header; printf '%s\n' "$header"; sort -k4 -nr; }
 ```
+# List docker bridge network cidr :
+```shell
+sudo docker network inspect bridge | jq -r '.[].IPAM.Config[]. Subnet'
+```
