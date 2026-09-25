@@ -43,7 +43,7 @@ sudo tar -C /usr/local/bin/ -xvf sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz s
 Then you can login to your Supervisor Cluster and then choose a context :
 ```shell
 set -o nounset
-kubectl vsphere login --server=$TSC_ClusterIP --insecure-skip-tls-verify
+kubectl vsphere login --insecure-skip-tls-verify --server=$TSC_ClusterIP
 kubectl config current-context
 kubectl config get-contexts
 kubectl config use-context $myContext
