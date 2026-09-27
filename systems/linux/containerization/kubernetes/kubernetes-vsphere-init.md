@@ -18,7 +18,7 @@ gsudo rmdir bin
 
 ### IP Overlap attention
 
-Be careful of the dockerd bridge network (172.16.0.0/16) which can overlap the IP of the Supervisor Cluster
+Be careful of the dockerd bridge network (172.17.0.0/16) which can overlap the IP of the Supervisor Cluster
 Check with this command :
 ```shell
 sudo docker network inspect bridge | jq -r '.[].IPAM.Config[].Subnet'
