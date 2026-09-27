@@ -17,7 +17,7 @@ gsudo rmdir bin
 ## Kubernetes vSphere Initialization on Ubuntu
 
 ```shell
-TSC_ClusterIP=172.17.0.1
+TSC_ClusterIP=172.16.0.1
 which wget >/dev/null || sudo apt install wget -Vy
 which unzip >/dev/null || sudo apt install unzip -Vy
 
