@@ -9,7 +9,7 @@ tcp_open $remoteIP
 zmodload zsh/net/tcp
 ztcp -v $remoteIP
 ```
-### Option 3 : use netcat command
+### Option 3 : use the netcat/nc command
 ```zsh
 nc -vz $remoteIP
 ```
