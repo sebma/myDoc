@@ -1,4 +1,4 @@
-# Telnet equivalent in ZSH
+# Telnet equivalent on macOS
 ## Option 1 : use tcp_open function via autoload
 ```zsh
 autoload -U tcp_open
