@@ -7,6 +7,7 @@ $ openssl s_client -connect $webSite:443 -showcerts </dev/null 2>/dev/null | awk
 out { print > out }
 /-----END CERTIFICATE-----/ { close(out); out="" }
 '
+$ ls $webSite*.pem
 ```
 # Download website certificates with GnuTLS client
 To download website certificates with GnuTLS client, type this command :
