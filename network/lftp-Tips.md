@@ -1,4 +1,4 @@
-# Do not check specific FTPS certificate with lftp
+# Do not verify specific FTPS certificate with lftp
 ```shell
 lftp ftps://$remoteIP <<< ls
 ls: Fatal error: Certificate verification: The certificate is NOT trusted. The certificate issuer is unknown.  (FI:NG:ER:PR:IN:T:HE:RE)
