@@ -18,4 +18,5 @@ $ gnutls-cli --print-cert $webSite < /dev/null | awk -v webSite=$webSite '
 out { print > out }
 /-----END CERTIFICATE-----/ { close(out); out="" }
 '
+$ ls $webSite*.pem
 ```
