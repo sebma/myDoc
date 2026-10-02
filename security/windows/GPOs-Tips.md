@@ -6,7 +6,7 @@ So as run as another user when clicking on **Run as Administrator** :
 You need to check if :
 1. your user does not belong to the local Administrators group :
 ```pwsh
-$isAdmin = ([Security.Principal.WindowsPrincipal] `  [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+$isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 $isAdmin
 ```
 
