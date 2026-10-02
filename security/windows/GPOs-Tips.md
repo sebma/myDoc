@@ -7,6 +7,10 @@ You need to check if :
 1. your user does not belong to the local Administrators group
 2. the **User Account Control: Run all administrators in Admin Approval Mode** GPO is `Enabled` :
 
+The command below must return 1 :
+```pwsh
+gpv HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -n EnableLUA
+```
 <img width="1676" height="527" alt="image_paste3223028" src="https://github.com/user-attachments/assets/17148448-dd4b-41e1-833b-14894229a089" />
 
 Also see :
