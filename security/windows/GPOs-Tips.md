@@ -7,7 +7,7 @@ You need to check if :
 1. your user does not belong to the local Administrators group :
 ```pwsh
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-$isAdmin
+Write-Host $isAdmin
 ```
 
 2. the **User Account Control: Run all administrators in Admin Approval Mode** GPO is `Enabled` :
