@@ -10,7 +10,7 @@ $isAdmin = ([Security.Principal.WindowsPrincipal] `  [Security.Principal.Windows
 $isAdmin
 ```
 
-3. the **User Account Control: Run all administrators in Admin Approval Mode** GPO is `Enabled` :
+2. the **User Account Control: Run all administrators in Admin Approval Mode** GPO is `Enabled` :
 
 <img width="1676" height="527" alt="image_paste3223028" src="https://github.com/user-attachments/assets/17148448-dd4b-41e1-833b-14894229a089" />
 
