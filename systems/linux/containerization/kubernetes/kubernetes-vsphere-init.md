@@ -28,7 +28,7 @@ If so you have to stop `dockerd` service and shutdown the `docker0` interface, l
 sudo systemctl stop docker.service docker.socket
 sudo ip link set docker0 down
 ```
-### Kubernetes vSphere Initialization on Ubuntu
+### Kubernetes vSphere tools for Ubuntu
 ```shell
 TSC_ClusterIP=172.16.0.1
 which wget >/dev/null || sudo apt install wget -Vy
@@ -46,6 +46,20 @@ sudo apt install -V ./k9s_linux_amd64.deb
 wget -c https://github.com/nklmilojevic/sofka/releases/download/v0.28.1/sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz
 sudo tar -C /usr/local/bin/ -xvf sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz sofka
  
+```
+### Bash Profile
+```shell
+cat <<-EOF >> ~/.profile.new
+########################################
+cd
+HISTSIZE=50000
+HISTFILESIZE=100000
+if ! pgrep ssh-agent >/dev/null;then
+        eval $(ssh-agent -s) >/dev/null
+        tty -s && ssh-add -l
+fi
+source <(kubectl completion $(basename $SHELL))
+EOF
 ```
 ## Kubernetes vSphere Login
 
