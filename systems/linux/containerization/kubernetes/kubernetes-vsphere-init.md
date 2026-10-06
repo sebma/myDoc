@@ -49,7 +49,7 @@ sudo tar -C /usr/local/bin/ -xvf sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz s
 ```
 ### Bash Profile
 ```shell
-cat <<-EOF >> ~/.profile.new
+cat <<-EOF >> ~/.profile
 ########################################
 cd
 HISTSIZE=50000
