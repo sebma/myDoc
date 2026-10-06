@@ -10,7 +10,7 @@ gsudo scoop install -g kubent
 gsudo choco install -y vscode vscodium pulsar
 gsudo wget.exe -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
 Expand-Archive vsphere-plugin.zip
-gsudo move .\bin\kubectl-vsphere.exe  "$ENV:windir/system32"
+gsudo move .\bin\kubectl-vsphere.exe "$ENV:windir/system32"
 rm bin\kubectl.exe vsphere-plugin.zip
 rmdir bin
 
