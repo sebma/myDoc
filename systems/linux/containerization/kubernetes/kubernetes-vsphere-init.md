@@ -79,6 +79,10 @@ kubectl config current-context
 kubectl config get-contexts
 kubectl config use-context $myContext
 ```
+One finished, you can :
+```shell
+kubectl-vsphere logout
+```
 
 See also :
 ```shell
