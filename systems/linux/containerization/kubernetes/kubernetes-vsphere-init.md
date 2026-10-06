@@ -9,10 +9,10 @@ gsudo scoop install -g wget putty-cac podman podman-tui kubectl kubectx kubens k
 gsudo scoop install -g kubent
 gsudo choco install -y vscode vscodium pulsar
 gsudo wget.exe -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
-gsudo Expand-Archive vsphere-plugin.zip "$ENV:windir/system32"
-gsudo move .\bin\kubectl-vsphere.exe .
-gsudo rm bin\kubectl.exe vsphere-plugin.zip
-gsudo rmdir bin
+Expand-Archive vsphere-plugin.zip
+gsudo move .\bin\kubectl-vsphere.exe  "$ENV:windir/system32"
+rm bin\kubectl.exe vsphere-plugin.zip
+rmdir bin
 
 ```
 ## Kubernetes vSphere tool requirements for macOS client
