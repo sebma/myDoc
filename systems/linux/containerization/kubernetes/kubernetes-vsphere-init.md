@@ -1,17 +1,32 @@
 # Kubernetes vSphere Initialization
 
-## Kubernetes vSphere Initialization on Windows
+## Kubernetes vSphere tool requirements for Windows client
 
 ```pwsh
 $TSC_ClusterIP=172.16.0.1
 gsudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
 gsudo scoop install -g wget putty-cac podman podman-tui kubectl kubectx kubens k9s helm kubetui
+gsudo scoop install -g kubent
 gsudo choco install -y vscode vscodium pulsar
 gsudo wget.exe -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
 gsudo Expand-Archive vsphere-plugin.zip "$ENV:windir/system32"
 gsudo move .\bin\kubectl-vsphere.exe .
 gsudo rm bin\kubectl.exe vsphere-plugin.zip
 gsudo rmdir bin
+
+```
+## Kubernetes vSphere tool requirements for macOS client
+
+```pwsh
+$TSC_ClusterIP=172.16.0.1
+brew install wget putty-cac podman podman-tui kubectl kubectx k9s helm kubetui
+brew install kubent
+brew install --cask vscode vscodium pulsar
+wget -c --no-check-certificate -nv https://$TSC_ClusterIP/wcp/plugin/darwin-amd64/vsphere-plugin.zip
+unzip vsphere-plugin.zip
+sudo mv -v ./bin/kubectl-vsphere .
+sudo rm -v bin/kubectl vsphere-plugin.zip
+sudo rmdir -v bin/
 
 ```
 ## Kubernetes vSphere Initialization on Ubuntu
