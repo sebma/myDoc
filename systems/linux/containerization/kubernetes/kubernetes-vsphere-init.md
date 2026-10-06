@@ -55,7 +55,7 @@ cd
 HISTSIZE=50000
 HISTFILESIZE=100000
 if ! pgrep ssh-agent >/dev/null;then
-        eval $(ssh-agent -s) >/dev/null
+        eval $(ssh-agent) >/dev/null
         tty -s && ssh-add -l
 fi
 which kubectl >/dev/null && source <(kubectl completion $(basename $SHELL))
