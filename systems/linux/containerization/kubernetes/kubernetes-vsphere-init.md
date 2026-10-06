@@ -19,7 +19,7 @@ gsudo rmdir bin
 
 ```pwsh
 $TSC_ClusterIP=172.16.0.1
-brew install wget putty-cac podman podman-tui kubectl kubectx k9s helm kubetui
+brew install wget putty podman podman-tui kubectl kubectx k9s helm kubetui
 brew install kubent
 brew install --cask vscode vscodium pulsar
 wget -c --no-check-certificate -nv https://$TSC_ClusterIP/wcp/plugin/darwin-amd64/vsphere-plugin.zip
