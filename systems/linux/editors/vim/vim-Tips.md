@@ -18,9 +18,11 @@ gu3k : Change 3 lines above to lower case
 cf. https://stackoverflow.com/a/2966034/5649639
 
 In insert mode :
+
 <kbd>Esc</kbd> <kbd>_n_</kbd><kbd>i</kbd><kbd>_c_</kbd> <kbd>Esc</kbd> : Repeats the <kbd>c</kbd> charcter `n` times.
 
 cf. https://stackoverflow.com/a/5054183/5649639
 
 In command mode :
+
 <kbd>_n_</kbd><kbd>i</kbd><kbd>_c_</kbd> <kbd>Esc</kbd> : Repeats the <kbd>c</kbd> charcter `n` times.
