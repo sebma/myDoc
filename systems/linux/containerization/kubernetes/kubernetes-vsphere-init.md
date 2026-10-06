@@ -66,7 +66,7 @@ EOF
 ```shell
 cat <<-EOF >> ~/.bash_logout
 #######################################################
-tty -s && eval $(ssh-agent -k)
+tty -s && test -z $SSH_AGENT_PID || eval $(ssh-agent -k)
 EOF
 ```
 ### Bash Aliases
