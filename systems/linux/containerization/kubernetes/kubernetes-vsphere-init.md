@@ -113,6 +113,6 @@ kubectl-vsphere login --help
 
 See :
 - [Connect to a TKG Service Cluster as a vCenter Single Sign-On User with Kubectl](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-supervisor/8-0/using-tkg-service-with-vsphere-supervisor/configuring-identity-and-access-for-tkg-service-clusters/connecting-to-tkg-service-clusters-using-vcenter-sso-authentication/connect-to-a-tkg-service-cluster-as-a-vcenter-single-sign-on-user-with-kubectl.html)
-- [The Kubernetes CLI Tools for vSphere download package (vsphere-plugin.zip ) cannot be downloaded from the Web UI](https://knowledge.broadcom.com/external/article/414343/the-kubernetes-cli-tools-for-vsphere-dow.html)
+- [Install the Kubernetes CLI Tools for vSphere](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-supervisor/8-0/using-tkg-service-with-vsphere-supervisor/configuring-identity-and-access-for-tkg-service-clusters/installing-cli-tools-for-tkg-service-clusters/install-the-kubernetes-cli-tools-for-vsphere.html)
 
 CNCF Applications Reference Framework : [CNCF Landscape](https://landscape.cncf.io/)
