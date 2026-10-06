@@ -58,7 +58,15 @@ if ! pgrep ssh-agent >/dev/null;then
         eval $(ssh-agent -s) >/dev/null
         tty -s && ssh-add -l
 fi
-source <(kubectl completion $(basename $SHELL))
+which kubectl >/dev/null && source <(kubectl completion $(basename $SHELL))
+which kubectl-vsphere >/dev/null && source <(kubectl-vsphere completion $(basename $SHELL))
+EOF
+```
+### Bash Logout
+```shell
+cat <<-EOF >> ~/.bash_logout
+#######################################################
+tty -s && eval $(ssh-agent -k)
 EOF
 ```
 ## Kubernetes vSphere Login
