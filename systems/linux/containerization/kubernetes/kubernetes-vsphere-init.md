@@ -25,8 +25,8 @@ brew install --cask vscode vscodium pulsar
 wget -c --no-check-certificate -nv https://$TSC_ClusterIP/wcp/plugin/darwin-amd64/vsphere-plugin.zip
 unzip vsphere-plugin.zip bin/kubectl-vsphere
 sudo mv -v bin/kubectl-vsphere /usr/local/bin/
-sudo rm -v vsphere-plugin.zip
-sudo rmdir -v bin/
+rm -v vsphere-plugin.zip
+rmdir -v bin/
 
 ```
 ## Kubernetes vSphere Initialization on Ubuntu
