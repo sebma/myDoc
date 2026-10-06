@@ -73,6 +73,7 @@ if ! pgrep ssh-agent >/dev/null;then
 fi
 which kubectl >/dev/null && source <(kubectl completion $(basename $SHELL))
 which kubectl-vsphere >/dev/null && source <(kubectl-vsphere completion $(basename $SHELL))
+which helm >/dev/null && source <(helm completion $(basename $SHELL))
 EOF
 ```
 ### Bash Logout
