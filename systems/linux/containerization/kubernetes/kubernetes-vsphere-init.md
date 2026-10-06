@@ -69,6 +69,12 @@ cat <<-EOF >> ~/.bash_logout
 tty -s && eval $(ssh-agent -k)
 EOF
 ```
+### Bash Aliases
+```shell
+cat <<-EOF >> ~/.bash_aliases
+alias kctl=kubectl;complete -F __start_kubectl kctl
+EOF
+```
 ## Kubernetes vSphere Login
 
 Then you can login to your Supervisor Cluster and then choose a context :
