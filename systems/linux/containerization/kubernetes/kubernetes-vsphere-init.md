@@ -73,6 +73,7 @@ EOF
 ```shell
 cat <<-EOF >> ~/.bash_aliases
 alias kctl=kubectl;complete -F __start_kubectl kctl
+alias kctl-vsphere=kubectl-vsphere;complete -F __start_kubectl-vsphere kctl-vsphere
 EOF
 ```
 ## Kubernetes vSphere Login
