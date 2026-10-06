@@ -21,7 +21,7 @@ rmdir bin
 $TSC_ClusterIP=172.16.0.1
 brew install wget putty podman podman-tui kubectl kubectx k9s helm kubetui
 brew install kubent
-brew install --cask vscode vscodium pulsar
+brew install --cask vscodium pulsar
 wget -c --no-check-certificate -nv https://$TSC_ClusterIP/wcp/plugin/darwin-amd64/vsphere-plugin.zip
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl-vsphere
 rm -v vsphere-plugin.zip
