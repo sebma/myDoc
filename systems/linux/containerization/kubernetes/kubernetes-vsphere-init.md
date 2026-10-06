@@ -17,7 +17,7 @@ rmdir bin
 ```
 ## Kubernetes vSphere tool requirements for macOS client
 
-```pwsh
+```shell
 $TSC_ClusterIP=172.16.0.1
 brew install wget putty podman podman-tui kubectl kubectx k9s helm kubetui
 brew install kubent
