@@ -50,6 +50,9 @@ which dh_bash-completion >/dev/null || sudo apt install bash-completion -Vy
 
 wget -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/linux-amd64/vsphere-plugin.zip
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl bin/kubectl-vsphere
+wget -c "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl-convert"
+sudo install -pvm 755 kubectl-convert /usr/local/bin/
+rm -vf kubectl-convert
 
 pkgList="kubectl kubectx helm"
 for pkg in $pkgList; do sudo snap install "$pkg" --classic;done
