@@ -1,6 +1,8 @@
 # ssh-agent config for Linux on WSL or docker
 ## Method 1
-### Bash Profile
+### Bash Profile config
+<details>
+<summary>
 ```shell
 cat <<-EOF >> ~/.profile
 #######################################################
@@ -13,7 +15,9 @@ if ! pgrep ssh-agent >/dev/null;then
 fi
 EOF
 ```
-### Bash Logout
+</summary>
+</details>
+### Bash Logout config
 ```shell
 cat <<-EOF >> ~/.bash_logout
 #######################################################
