@@ -28,7 +28,9 @@ EOF
 </details>
 
 ## Method 2
-### Create an ssh-agent systemD service in userland
+<details>
+<summary>Create an ssh-agent systemD service in userland</summary>
+
 ```shell
 mkdir -p ~/.config/systemd/user
 
@@ -49,3 +51,4 @@ systemctl --user enable --now ssh-agent.service
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 grep SSH_AUTH_SOCK= ~/.bashrc -q || echo 'export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"' >> ~/.bashrc
 ```
+</details>
