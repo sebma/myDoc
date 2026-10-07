@@ -33,9 +33,9 @@ EOF
 
 ```shell
 sudo apt install -V gpg-agent
-if gpgconf --list-dirs agent-ssh-socket | grep /run -q;then
-	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-	grep SSH_AUTH_SOCK= ~/.bashrc -q || echo 'export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)' >> ~/.bashrc
+if gpgconf --list-dirs agent-ssh-socket | grep ssh -q;then
+	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket | grep ssh)
+	grep SSH_AUTH_SOCK= ~/.bashrc -q || echo 'export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket | grep ssh)' >> ~/.bashrc
 fi
 ```
 </details>
