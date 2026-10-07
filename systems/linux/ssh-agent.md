@@ -29,7 +29,7 @@ EOF
 
 ## Method 2
 <details>
-<summary>Create an ssh-agent systemD service in userland</summary>
+<summary>Create an ssh-agent systemd service in userland</summary>
 
 ```shell
 mkdir -p ~/.config/systemd/user
