@@ -60,39 +60,28 @@ wget -c https://github.com/nklmilojevic/sofka/releases/download/v0.28.1/sofka-v0
 sudo tar -C /usr/local/bin/ -xvf sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz sofka
  
 ```
-### Bash Profile
+### Completion in Bash Profile
 ```shell
 cat <<-EOF >> ~/.profile
 #######################################################
 cd
 HISTSIZE=50000
 HISTFILESIZE=100000
-if pgrep ssh-agent >/dev/null;then
-	test -z "$SSH_AGENT_PID" && pkill ssh-agent
-fi
-if ! pgrep ssh-agent >/dev/null;then
-	eval $(ssh-agent) >/dev/null
-	tty -s && ssh-add -l
-fi
 which kubectl >/dev/null && source <(kubectl completion $(basename $SHELL))
 which kubectl-vsphere >/dev/null && source <(kubectl-vsphere completion $(basename $SHELL))
 which helm >/dev/null && source <(helm completion $(basename $SHELL))
 EOF
 ```
-### Bash Logout
-```shell
-cat <<-EOF >> ~/.bash_logout
-#######################################################
-tty -s && test -n "$SSH_AGENT_PID" && eval $(ssh-agent -k) || pkill ssh-agent
-EOF
-```
-### Bash Aliases
+### kctl Alias
 ```shell
 cat <<-EOF >> ~/.bash_aliases
 alias kctl=kubectl;complete -F __start_kubectl kctl
 alias kctl-vsphere=kubectl-vsphere;complete -F __start_kubectl-vsphere kctl-vsphere
 EOF
 ```
+### ssh-agent configuration
+[ssh-agent configuration](./ssh-agent.md)
+
 ## Kubernetes vSphere Login
 
 Then you can login to your Supervisor Cluster and then choose a context :
