@@ -99,6 +99,7 @@ Then you can login to your Supervisor Cluster and then choose a context :
 ```shell
 set -o nounset
 kubectl-vsphere login --insecure-skip-tls-verify --server=$TSC_ClusterIP
+kubectl config view
 kubectl config current-context
 kubectl config get-contexts
 kubectl config use-context $myContext
