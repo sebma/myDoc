@@ -29,6 +29,19 @@ EOF
 
 ## Method 2
 <details>
+	<summary>Use gpg-agent.service</summary>
+
+```shell
+sudo apt install -V gpg-agent
+if gpgconf --list-dirs agent-ssh-socket | grep /run -q;then
+	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+	grep SSH_AUTH_SOCK= ~/.bashrc -q || echo 'export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)' >> ~/.bashrc
+fi
+```
+</details>
+
+## Method 3
+<details>
 <summary>Create a ssh-agent systemd service in userland</summary>
 
 ```shell
@@ -52,13 +65,3 @@ grep SSH_AUTH_SOCK= ~/.bashrc -q || echo 'export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR
 ```
 </details>
 
-## Method 3
-<details>
-	<summary>Use gpg-agent.service</summary>
-
-```shell
-sudo apt install -V gpg-agent
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-grep SSH_AUTH_SOCK= ~/.bashrc -q || echo 'export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)' >> ~/.bashrc
-```
-</details>
