@@ -29,7 +29,7 @@ EOF
 
 ## Method 2
 <details>
-	<summary>Use the gpg-agent service</summary>
+	<summary>Use the gpg-agent service socket</summary>
 
 ```shell
 if gpgconf --list-dirs agent-ssh-socket | grep ssh -q;then
