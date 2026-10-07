@@ -26,6 +26,7 @@ tty -s && test -n "$SSH_AGENT_PID" && eval $(ssh-agent -k) || pkill ssh-agent
 EOF
 ```
 </details>
+
 ## Method 2
 ### Create an ssh-agent systemD service in userland
 ```shell
