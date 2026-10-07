@@ -72,7 +72,7 @@ which kubectl-vsphere >/dev/null && source <(kubectl-vsphere completion $(basena
 which helm >/dev/null && source <(helm completion $(basename $SHELL))
 EOF
 ```
-### kctl Alias
+### kctl alias
 ```shell
 cat <<-EOF >> ~/.bash_aliases
 alias kctl=kubectl;complete -F __start_kubectl kctl
