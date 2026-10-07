@@ -1,7 +1,7 @@
 # ssh-agent config for Linux on WSL or docker
 ## Method 1
 <details>
-<summary>### Bash Profile config
+<summary>Bash Profile config
 
 ```shell
 cat <<-EOF >> ~/.profile
