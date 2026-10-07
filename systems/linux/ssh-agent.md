@@ -18,6 +18,7 @@ EOF
 </details>
 <details>
 <summary>Bash Logout config</summary>
+
 ```shell
 cat <<-EOF >> ~/.bash_logout
 #######################################################
