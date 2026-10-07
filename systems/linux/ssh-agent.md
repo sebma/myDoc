@@ -33,7 +33,6 @@ EOF
 
 ```shell
 mkdir -p ~/.config/systemd/user
-
 cat > ~/.config/systemd/user/ssh-agent.service <<'EOF'
 [Unit]
 Description=SSH Key Agent
