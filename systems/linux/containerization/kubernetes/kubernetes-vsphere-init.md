@@ -109,6 +109,7 @@ kubectl create deployment test --image=nginx:latest --replicas=1 -o yaml --dry-r
 kubectl create service clusterip test-svc --tcp=80:80 -o yaml --dry-run
 kubectl get deploy
 kubectl get service
+kubectl api-resources
 ```
 
 Once finished, you can :
