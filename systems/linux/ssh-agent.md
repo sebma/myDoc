@@ -29,7 +29,7 @@ EOF
 
 ## Method 2
 <details>
-	<summary>Use gpg-agent.service</summary>
+	<summary>Use the gpg-agent service</summary>
 
 ```shell
 sudo apt install -V gpg-agent
