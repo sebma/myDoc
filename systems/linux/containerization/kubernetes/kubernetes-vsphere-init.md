@@ -5,7 +5,7 @@
 ```pwsh
 $TSC_ClusterIP=172.16.0.1
 gsudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
-gsudo scoop install -g wget putty-cac podman podman-tui kubectl kubectx kubens k9s helm kubetui
+gsudo scoop install -g wget putty-cac podman podman-tui kubectl kubeadm kubectx kubens k9s helm kubetui
 gsudo scoop install -g kubent
 gsudo choco install -y vscode vscodium pulsar
 gsudo wget.exe -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
@@ -57,7 +57,7 @@ wget -c "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable
 sudo install -pvm 755 kubectl-convert /usr/local/bin/
 rm -vf kubectl-convert
 
-pkgList="kubectl kubectx helm"
+pkgList="kubectl kubeadm kubectx helm"
 for pkg in $pkgList; do sudo snap install "$pkg" --classic;done
 
 wget -c https://github.com/derailed/k9s/releases/latest/download/k9s_linux_amd64.deb
