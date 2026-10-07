@@ -2,6 +2,7 @@
 ## Method 1
 <details>
 <summary>### Bash Profile config
+
 ```shell
 cat <<-EOF >> ~/.profile
 #######################################################
