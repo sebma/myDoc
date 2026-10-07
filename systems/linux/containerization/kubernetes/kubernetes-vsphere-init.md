@@ -22,12 +22,12 @@ $TSC_ClusterIP=172.16.0.1
 brew install wget putty podman podman-tui kubectl kubectl-tree kubectx k9s helm kubetui
 brew install kubent 
 brew install --cask vscodium pulsar
-wget -c --no-check-certificate -nv https://$TSC_ClusterIP/wcp/plugin/darwin-amd64/vsphere-plugin.zip
+wget -c --no-check-certificate -nv https://$TSC_ClusterIP/wcp/plugin/$(uname -s | tr [:upper:] [:lower:])-amd64/vsphere-plugin.zip
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl-vsphere
 rm -vf vsphere-plugin.zip
 
 for tool in kubectl-convert kubeadm;do
-	wget -c "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/amd64/$tool"
+	wget -c "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/$(uname -s | tr [:upper:] [:lower:])/amd64/$tool"
 	sudo install -pvm 755 $tool /usr/local/bin/
 	rm -vf $tool
 done
@@ -53,9 +53,9 @@ which wget >/dev/null || sudo apt install wget -Vy
 which unzip >/dev/null || sudo apt install unzip -Vy
 which dh_bash-completion >/dev/null || sudo apt install bash-completion -Vy
 
-wget -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/linux-amd64/vsphere-plugin.zip
+wget -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/$(uname -s | tr [:upper:] [:lower:])-amd64/vsphere-plugin.zip
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl bin/kubectl-vsphere
-wget -c "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl-convert"
+wget -c "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/$(uname -s | tr [:upper:] [:lower:])/amd64/kubectl-convert"
 sudo install -pvm 755 kubectl-convert /usr/local/bin/
 rm -vf kubectl-convert
 
