@@ -103,7 +103,14 @@ kubectl config view
 kubectl config current-context
 kubectl config get-contexts
 kubectl config use-context $myContext
+kubectl explain deploy
+kubectl explain deploy.spec
+kubectl create deployment test --image=nginx:latest --replicas=1 -o yaml --dry-run
+kubectl create service clusterip test-svc --tcp=80:80 -o yaml --dry-run
+kubectl get deploy
+kubectl get service
 ```
+
 Once finished, you can :
 ```shell
 kubectl-vsphere logout
