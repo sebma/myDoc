@@ -1,4 +1,4 @@
-# ssh-agent config for Linux on WSL or docker
+# ssh-agent config for Linux on WSL or on docker
 ## Method 1
 <details>
 <summary>Bash Profile config</summary>
