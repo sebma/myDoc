@@ -80,7 +80,7 @@ alias kctl-vsphere=kubectl-vsphere;complete -F __start_kubectl-vsphere kctl-vsph
 EOF
 ```
 ### ssh-agent configuration
-[ssh-agent configuration](./ssh-agent.md)
+[ssh-agent configuration](../../ssh-agent.md)
 
 ## Kubernetes vSphere Login
 
