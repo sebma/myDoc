@@ -3,6 +3,7 @@
 ### Bash Profile config
 <details>
 <summary>
+
 ```shell
 cat <<-EOF >> ~/.profile
 #######################################################
