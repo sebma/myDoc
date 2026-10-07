@@ -24,7 +24,10 @@ brew install kubent
 brew install --cask vscodium pulsar
 wget -c --no-check-certificate -nv https://$TSC_ClusterIP/wcp/plugin/darwin-amd64/vsphere-plugin.zip
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl-vsphere
-rm -v vsphere-plugin.zip
+rm -vf vsphere-plugin.zip
+wget -c "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/amd64/kubectl-convert"
+sudo install -pvm 755 kubectl-convert /usr/local/bin/
+rm -vf kubectl-convert
 
 ```
 ## Kubernetes vSphere Initialization on Ubuntu
