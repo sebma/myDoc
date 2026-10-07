@@ -16,14 +16,15 @@ fi
 EOF
 ```
 </details>
-
-### Bash Logout config
+<details>
+<summary>Bash Logout config</summary>
 ```shell
 cat <<-EOF >> ~/.bash_logout
 #######################################################
 tty -s && test -n "$SSH_AGENT_PID" && eval $(ssh-agent -k) || pkill ssh-agent
 EOF
 ```
+</details>
 ## Method 2
 ### Create an ssh-agent systemD service in userland
 ```shell
