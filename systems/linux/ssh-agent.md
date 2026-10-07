@@ -51,9 +51,10 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 grep SSH_AUTH_SOCK= ~/.bashrc -q || echo 'export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"' >> ~/.bashrc
 ```
 </details>
+
 ## Method 3
 <details>
-	<summary>Use gpg-agent.servoce</summary>
+	<summary>Use gpg-agent.service</summary>
 
 ```shell
 sudo apt install -V gpg-agent
