@@ -67,9 +67,12 @@ cat <<-EOF >> ~/.profile
 cd
 HISTSIZE=50000
 HISTFILESIZE=100000
+if pgrep ssh-agent >/dev/null;then
+	test -z "$SSH_AGENT_PID" && pkill ssh-agent
+fi
 if ! pgrep ssh-agent >/dev/null;then
-        eval $(ssh-agent) >/dev/null
-        tty -s && ssh-add -l
+	eval $(ssh-agent) >/dev/null
+	tty -s && ssh-add -l
 fi
 which kubectl >/dev/null && source <(kubectl completion $(basename $SHELL))
 which kubectl-vsphere >/dev/null && source <(kubectl-vsphere completion $(basename $SHELL))
@@ -80,7 +83,7 @@ EOF
 ```shell
 cat <<-EOF >> ~/.bash_logout
 #######################################################
-tty -s && test -n "$SSH_AGENT_PID" && eval $(ssh-agent -k)
+tty -s && test -n "$SSH_AGENT_PID" && eval $(ssh-agent -k) || pkill ssh-agent
 EOF
 ```
 ### Bash Aliases
