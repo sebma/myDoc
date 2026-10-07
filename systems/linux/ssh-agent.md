@@ -32,7 +32,6 @@ EOF
 	<summary>Use the gpg-agent service</summary>
 
 ```shell
-which gpg-agent >/dev/null || sudo apt install -V gpg-agent
 if gpgconf --list-dirs agent-ssh-socket | grep ssh -q;then
 	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket | grep ssh)
 	grep SSH_AUTH_SOCK= ~/.bashrc -q || echo 'export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket | grep ssh)' >> ~/.bashrc
