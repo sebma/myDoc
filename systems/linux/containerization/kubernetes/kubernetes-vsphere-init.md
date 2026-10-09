@@ -60,7 +60,7 @@ sudo install -pvm 755 kubectl-convert /usr/local/bin/
 rm -vf kubectl-convert
 
 pkgList="kubectl kubeadm kubectx helm"
-for pkg in $pkgList; do sudo snap install "$pkg" --classic;done
+for pkg in $pkgList; do which $pkg >/dev/null || sudo snap install "$pkg" --classic;done
 
 wget -c https://github.com/derailed/k9s/releases/latest/download/k9s_linux_amd64.deb
 sudo apt install -V ./k9s_linux_amd64.deb
