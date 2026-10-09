@@ -29,18 +29,6 @@ EOF
 
 ## Method 2
 <details>
-	<summary>Use the gpg-agent service socket</summary>
-
-```shell
-if gpgconf --list-dirs agent-ssh-socket | grep ssh -q;then
-	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket | grep ssh)
-	grep SSH_AUTH_SOCK= ~/.bashrc -q || echo 'export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket | grep ssh)' >> ~/.bashrc
-fi
-```
-</details>
-
-## Method 3
-<details>
 <summary>Create a ssh-agent systemd service in userland</summary>
 
 ```shell
@@ -64,3 +52,19 @@ grep SSH_AUTH_SOCK= ~/.bashrc -q || echo 'export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR
 ```
 </details>
 
+## Method 3
+<details>
+	<summary>Use the gpg-agent service socket</summary>
+
+```shell
+if gpgconf --list-dirs agent-ssh-socket | grep ssh -q;then
+	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket | grep ssh)
+	grep SSH_AUTH_SOCK= ~/.bashrc -q || echo 'export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket | grep ssh)' >> ~/.bashrc
+fi
+```
+### ATTENTION : gpg fails loading ED25519 OpenSSH private key :
+```shell
+Could not add identity "/home/sebm/.ssh/clef-SebM": agent refused operation
+```
+-> bug report a creer sur https://bugs.gnupg.org/
+</details>
