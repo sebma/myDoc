@@ -41,9 +41,9 @@ done
 <details>
 <summary>Kubernetes vSphere tool requirements for Linux client</summary>
 
-### IP Overlap attention
+### IP Overlap attention if docker is also installed
 
-Be careful of the dockerd bridge network (172.17.0.0/16) which can overlap the IP of the Supervisor Cluster
+Be careful of the dockerd `bridge` network range `(172.17.0.0/16)` which can overlap with the IP of the Supervisor Cluster
 Check with this command :
 ```shell
 sudo docker network inspect bridge | jq -r '.[].IPAM.Config[].Subnet'
