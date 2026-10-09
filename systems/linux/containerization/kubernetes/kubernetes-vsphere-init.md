@@ -1,6 +1,7 @@
 # Kubernetes vSphere Initialization
 
-## Kubernetes vSphere tool requirements for Windows client
+<details>
+<summary>Kubernetes vSphere tool requirements for Windows client</summary>
 
 ```pwsh
 $TSC_ClusterIP=172.16.0.1
@@ -15,7 +16,9 @@ rm bin\kubectl.exe vsphere-plugin.zip
 rmdir bin
 
 ```
-## Kubernetes vSphere tool requirements for macOS client
+</details>
+<details>
+<summary>Kubernetes vSphere tool requirements for macOS client</summary>
 
 ```shell
 $TSC_ClusterIP=172.16.0.1
@@ -34,7 +37,9 @@ for tool in kube-proxy kubeadm kubectl kubectl-convert kubelet mounter;do
 	rm -vf $tool
 done
 ```
-## Kubernetes vSphere Initialization on Linux client
+</details>
+<details>
+<summary>Kubernetes vSphere Initialization on Linux client</summary>
 
 ### IP Overlap attention
 
@@ -99,6 +104,7 @@ EOF
 ```
 ### ssh-agent configuration
 [ssh-agent configuration](../../ssh-agent.md)
+</details>
 
 ## Kubernetes vSphere Login
 
