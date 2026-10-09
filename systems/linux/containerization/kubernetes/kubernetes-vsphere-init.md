@@ -118,6 +118,7 @@ kubectl config get-contexts
 kubectl config use-context $myContext
 kubectl cluster-info
 kubectl get nodes
+kubectl get ns
 kubectl explain deploy
 kubectl explain deploy.spec
 kubectl create deployment test --image=nginx:latest --replicas=1 -o yaml --dry-run
