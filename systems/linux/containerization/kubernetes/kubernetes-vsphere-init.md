@@ -62,13 +62,15 @@ for tool in kube-proxy kubeadm kubectl kubectl-convert kubelet mounter;do
 	rm -vf $tool
 done
 
-which helm || curl -s https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4 | bash
-
-pkgList="k9s kubectx"
+pkgList="kubectx"
 for pkg in $pkgList; do which $pkg >/dev/null || sudo snap install "$pkg" --classic;done
 
-# wget -c https://github.com/derailed/k9s/releases/latest/download/k9s_linux_amd64.deb
-# sudo apt install -V ./k9s_linux_amd64.deb
+which helm || curl -s https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4 | bash
+if ! which k9s;then
+	wget -c https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_amd64.tar.gz
+	tar xvzf k9s_Linux_amd64.tar.gz k9s
+	sudo mv -v k9s /usr/local/bin/
+fi
 
 wget -c https://github.com/nklmilojevic/sofka/releases/download/v0.28.1/sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz
 sudo tar -C /usr/local/bin/ -xvf sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz sofka
