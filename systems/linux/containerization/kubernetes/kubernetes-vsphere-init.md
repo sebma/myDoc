@@ -20,9 +20,10 @@ rmdir bin
 ```shell
 $TSC_ClusterIP=172.16.0.1
 brew install iproute2 curl wget
-brew install helm k9s kubectl kubectl-tree kubectx kubetui podman podman-tui
+brew install helm k9s kubectl kubectl-tree kubectx kubetui podman podman-tui sofka
 brew install kubent 
 brew install --cask vscodium pulsar
+
 wget -c --no-check-certificate -nv https://$TSC_ClusterIP/wcp/plugin/$(uname -s | tr [:upper:] [:lower:])-amd64/vsphere-plugin.zip
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl-vsphere
 rm -vf vsphere-plugin.zip
@@ -33,7 +34,7 @@ for tool in kube-proxy kubeadm kubectl kubectl-convert kubelet mounter;do
 	rm -vf $tool
 done
 ```
-## Kubernetes vSphere Initialization on Linux
+## Kubernetes vSphere Initialization on Linux client
 
 ### IP Overlap attention
 
