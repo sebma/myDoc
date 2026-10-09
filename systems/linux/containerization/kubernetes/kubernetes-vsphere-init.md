@@ -26,7 +26,7 @@ wget -c --no-check-certificate -nv https://$TSC_ClusterIP/wcp/plugin/$(uname -s 
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl-vsphere
 rm -vf vsphere-plugin.zip
 
-for tool in kubectl-convert kubeadm;do
+for tool in kube-proxy kubeadm kubectl kubectl-convert kubelet mounter;do
 	wget -c "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/$(uname -s | tr [:upper:] [:lower:])/amd64/$tool"
 	sudo install -pvm 755 $tool /usr/local/bin/
 	rm -vf $tool
@@ -55,9 +55,12 @@ which dh_bash-completion >/dev/null || sudo apt install bash-completion -Vy
 
 wget -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/$(uname -s | tr [:upper:] [:lower:])-amd64/vsphere-plugin.zip
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl bin/kubectl-vsphere
-wget -c "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/$(uname -s | tr [:upper:] [:lower:])/amd64/kubectl-convert"
-sudo install -pvm 755 kubectl-convert /usr/local/bin/
-rm -vf kubectl-convert
+
+for tool in kube-proxy kubeadm kubectl kubectl-convert kubelet mounter;do
+	wget -c "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/$(uname -s | tr [:upper:] [:lower:])/amd64/$tool"
+	sudo install -pvm 755 $tool /usr/local/bin/
+	rm -vf $tool
+done
 
 pkgList="kubectl kubeadm kubectx helm"
 for pkg in $pkgList; do which $pkg >/dev/null || sudo snap install "$pkg" --classic;done
