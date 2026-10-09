@@ -39,7 +39,7 @@ done
 ```
 </details>
 <details>
-<summary>Kubernetes vSphere Initialization on Linux client</summary>
+<summary>Kubernetes vSphere tool requirements for Linux client</summary>
 
 ### IP Overlap attention
 
