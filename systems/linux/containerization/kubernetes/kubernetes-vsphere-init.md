@@ -19,7 +19,7 @@ rmdir bin
 
 ```shell
 $TSC_ClusterIP=172.16.0.1
-brew install curl wget helm k9s kubectl kubectl-tree kubectx kubetui podman podman-tui
+brew install iproute2 curl wget helm k9s kubectl kubectl-tree kubectx kubetui podman podman-tui
 brew install kubent 
 brew install --cask vscodium pulsar
 wget -c --no-check-certificate -nv https://$TSC_ClusterIP/wcp/plugin/$(uname -s | tr [:upper:] [:lower:])-amd64/vsphere-plugin.zip
