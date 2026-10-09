@@ -4,7 +4,7 @@
 <summary>Kubernetes vSphere tool requirements for Windows client</summary>
 
 ```pwsh
-$TSC_ClusterIP=172.16.0.1
+$TSC_ClusterIP=172.16.0.1 # A ADAPTER
 gsudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
 gsudo scoop install -g wget putty-cac podman podman-tui kubectl kubeadm kubectx kubens k9s helm kubetui
 gsudo scoop install -g kubent
@@ -21,7 +21,7 @@ rmdir bin
 <summary>Kubernetes vSphere tool requirements for macOS client</summary>
 
 ```shell
-$TSC_ClusterIP=172.16.0.1
+$TSC_ClusterIP=172.16.0.1 # A ADAPTER
 brew install iproute2 curl wget
 brew install helm k9s kubectl kubectl-tree kubectx kubetui podman podman-tui sofka
 brew install kubent 
@@ -55,7 +55,7 @@ sudo ip link set docker0 down
 ```
 ### Kubernetes vSphere tools for Linux
 ```shell
-TSC_ClusterIP=172.16.0.1
+TSC_ClusterIP=172.16.0.1 # A ADAPTER
 which wget >/dev/null || sudo apt install wget -Vy
 which unzip >/dev/null || sudo apt install unzip -Vy
 which dh_bash-completion >/dev/null || sudo apt install bash-completion -Vy
