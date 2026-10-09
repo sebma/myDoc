@@ -64,7 +64,7 @@ done
 
 which helm || curl -s https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4 | bash
 
-pkgList="kubectl kubeadm kubectx helm"
+pkgList="kubectx"
 for pkg in $pkgList; do which $pkg >/dev/null || sudo snap install "$pkg" --classic;done
 
 wget -c https://github.com/derailed/k9s/releases/latest/download/k9s_linux_amd64.deb
