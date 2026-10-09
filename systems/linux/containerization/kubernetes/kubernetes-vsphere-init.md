@@ -62,6 +62,8 @@ for tool in kube-proxy kubeadm kubectl kubectl-convert kubelet mounter;do
 	rm -vf $tool
 done
 
+which helm || curl -s https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4 | bash
+
 pkgList="kubectl kubeadm kubectx helm"
 for pkg in $pkgList; do which $pkg >/dev/null || sudo snap install "$pkg" --classic;done
 
