@@ -32,7 +32,7 @@ for tool in kube-proxy kubeadm kubectl kubectl-convert kubelet mounter;do
 	rm -vf $tool
 done
 ```
-## Kubernetes vSphere Initialization on Ubuntu
+## Kubernetes vSphere Initialization on Linux
 
 ### IP Overlap attention
 
