@@ -1,24 +1,22 @@
 # Kubernetes vSphere Initialization
 
 <details>
-<summary>Kubernetes vSphere tool requirements for Windows client</summary>
+<summary>IP Overlap attention if docker is also installed on macOS/Linux/WSL</summary>
 
-```pwsh
-$TSC_ClusterIP=172.16.0.1 # A ADAPTER
-gsudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
-gsudo scoop install -g wget putty-cac podman podman-tui kubectl kubeadm kubectx kubens k9s helm kubetui
-gsudo scoop install -g kubent
-gsudo choco install -y vscode vscodium pulsar
-gsudo wget.exe -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
-Expand-Archive vsphere-plugin.zip
-gsudo move .\bin\kubectl-vsphere.exe "$ENV:windir/system32"
-rm bin\kubectl.exe vsphere-plugin.zip
-rmdir bin
-
+Be careful of the dockerd `bridge` network range `(172.17.0.0/16)` which can overlap with the IP of the Supervisor Cluster
+Check with this command :
+```shell
+sudo docker network inspect bridge | jq -r '.[].IPAM.Config[].Subnet'
+```
+If so you have to stop `dockerd` service and shutdown the `docker0` interface, like this :
+```shell
+sudo systemctl stop docker.service docker.socket
+sudo ip link set docker0 down
 ```
 </details>
+
 <details>
-<summary>Kubernetes vSphere tool requirements for macOS client</summary>
+<summary>Kubernetes vSphere tool requirements for macOS clients</summary>
 
 ```shell
 $TSC_ClusterIP=172.16.0.1 # A ADAPTER
@@ -38,22 +36,11 @@ for tool in kube-proxy kubeadm kubectl kubectl-convert kubelet mounter;do
 done
 ```
 </details>
+
 <details>
-<summary>Kubernetes vSphere tool requirements for Linux client</summary>
+<summary>Kubernetes vSphere tool requirements for Linux/WSL clients</summary>
 
-### IP Overlap attention if docker is also installed
-
-Be careful of the dockerd `bridge` network range `(172.17.0.0/16)` which can overlap with the IP of the Supervisor Cluster
-Check with this command :
-```shell
-sudo docker network inspect bridge | jq -r '.[].IPAM.Config[].Subnet'
-```
-If so you have to stop `dockerd` service and shutdown the `docker0` interface, like this :
-```shell
-sudo systemctl stop docker.service docker.socket
-sudo ip link set docker0 down
-```
-### Kubernetes vSphere tools for Linux
+### Kubernetes vSphere tools for Linux/WSL
 ```shell
 TSC_ClusterIP=172.16.0.1 # A ADAPTER
 which wget >/dev/null || sudo apt install wget -Vy
@@ -83,7 +70,11 @@ wget -c https://github.com/nklmilojevic/sofka/releases/download/v0.28.1/sofka-v0
 sudo tar -C /usr/local/bin/ -xvf sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz sofka
  
 ```
-### Completion in Bash Profile
+</details>
+
+<details>
+<summary>Configure kubectl/helm in BASH</summary>
+### Configure kubectl/helm completion in Bash Profile
 ```shell
 cat <<-EOF >> ~/.profile
 #######################################################
@@ -95,15 +86,45 @@ which kubectl-vsphere >/dev/null && source <(kubectl-vsphere completion $(basena
 which helm >/dev/null && source <(helm completion $(basename $SHELL))
 EOF
 ```
-### kctl alias
+### Configure kctl bash aliases
 ```shell
 cat <<-EOF >> ~/.bash_aliases
 alias kctl=kubectl;complete -F __start_kubectl kctl
 alias kctl-vsphere=kubectl-vsphere;complete -F __start_kubectl-vsphere kctl-vsphere
 EOF
 ```
-### ssh-agent configuration
+</details>
+
+
+<details>
+<summary>Configure kubectl/helm in ZSH</summary>
+```shell
+kubectl completion zsh > "${fpath[1]}/_kubectl"
+kubectl-vsphere completion zsh >> "${fpath[1]}/_kubectl"
+helm completion zsh > "${fpath[1]}/_helm"
+```
+</details>
+
+### ssh-agent configuration for Linux/WSL
 [ssh-agent configuration](../../ssh-agent.md)
+
+
+<details>
+<summary>Kubernetes vSphere tool requirements for Windows clients</summary>
+
+```pwsh
+$TSC_ClusterIP=172.16.0.1 # A ADAPTER
+gsudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
+gsudo scoop install -g wget putty-cac podman podman-tui kubectl kubeadm kubectx kubens k9s helm kubetui
+gsudo scoop install -g kubent
+gsudo choco install -y vscode vscodium pulsar
+gsudo wget.exe -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
+Expand-Archive vsphere-plugin.zip
+gsudo move .\bin\kubectl-vsphere.exe "$ENV:windir/system32"
+rm bin\kubectl.exe vsphere-plugin.zip
+rmdir bin
+
+```
 </details>
 
 ## Kubernetes vSphere Login
