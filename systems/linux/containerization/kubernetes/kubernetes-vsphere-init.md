@@ -18,6 +18,11 @@ If so you have to stop `dockerd` service and shutdown the `docker0` interface, l
 sudo systemctl stop docker.service docker.socket
 sudo ip link set docker0 down
 ```
+Another solution : install podman which works on the `10.88.0.0/16` CIDR :) :
+```shell
+podman network inspect podman 2>/dev/null | jq -r .[].subnets[].subnet
+```
+
 </details>
 
 <details>
