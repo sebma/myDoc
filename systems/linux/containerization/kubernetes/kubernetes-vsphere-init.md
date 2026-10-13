@@ -20,6 +20,7 @@ sudo ip link set docker0 down
 
 ```shell
 $TSC_ClusterIP=172.16.0.1 # A ADAPTER
+which brew >/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install iproute2 curl wget
 brew install helm k9s kubectl kubectl-tree kubectx kubetui podman podman-tui sofka
 brew install kubent 
