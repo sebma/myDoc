@@ -101,9 +101,10 @@ EOF
 <summary>Configure kubectl/helm in ZSH</summary>
 
 ```shell
-kubectl completion zsh > "${fpath[1]}/_kubectl"
-kubectl-vsphere completion zsh >> "${fpath[1]}/_kubectl"
-helm completion zsh > "${fpath[1]}/_helm"
+mkdir -pv ~/.zsh/completions
+kubectl completion zsh > ~/.zsh/completions/_kubectl
+kubectl-vsphere completion zsh >> ~/.zsh/completions/_kubectl-vsphere
+helm completion zsh > ~/.zsh/completions/_helm
 ```
 </details>
 
@@ -126,6 +127,18 @@ gsudo move .\bin\kubectl-vsphere.exe "$ENV:windir/system32"
 rm bin\kubectl.exe vsphere-plugin.zip
 rmdir bin
 
+```
+</details>
+
+<details>
+<summary>Configure kubectl/helm in powershell</summary>
+
+```powershell
+mkdir -force ~/.kube/completions/
+kubectl completion powershell > ~/.kube/completions/_kubectl-completion.ps1
+kubectl-vsphere completion powershell >> ~/.kube/completions/_kubectl-vsphere-completion.ps1
+helm completion powershell > ~/.kube/completions/_helm-completion.ps1
+#  Add-Content $PROFILE ". '$HOME\.kube\completion.ps1'"
 ```
 </details>
 
