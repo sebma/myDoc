@@ -6,7 +6,7 @@
 Check by which interface you are going through when trying to join the Supervisor :
 ```shell
 TSC_ClusterIP=172.17.1.1 # A ADAPTER
-ip route get $TSC_ClusterIP
+ip -c=never route get $TSC_ClusterIP | grep -oP 'dev\s\K\w+\d+'
 ```
 Be careful of the dockerd `bridge` network range `(172.17.0.0/16)` which can overlap with the IP of the Supervisor Cluster
 Check with this command :
