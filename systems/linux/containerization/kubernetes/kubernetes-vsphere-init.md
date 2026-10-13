@@ -74,6 +74,7 @@ sudo tar -C /usr/local/bin/ -xvf sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz s
 
 <details>
 <summary>Configure kubectl/helm in BASH</summary>
+
 ### Configure kubectl/helm completion in Bash Profile
 ```shell
 cat <<-EOF >> ~/.profile
@@ -98,6 +99,7 @@ EOF
 
 <details>
 <summary>Configure kubectl/helm in ZSH</summary>
+
 ```shell
 kubectl completion zsh > "${fpath[1]}/_kubectl"
 kubectl-vsphere completion zsh >> "${fpath[1]}/_kubectl"
