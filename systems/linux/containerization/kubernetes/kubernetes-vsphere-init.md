@@ -105,6 +105,13 @@ mkdir -pv ~/.zsh/completions
 kubectl completion zsh > ~/.zsh/completions/_kubectl
 kubectl-vsphere completion zsh >> ~/.zsh/completions/_kubectl-vsphere
 helm completion zsh > ~/.zsh/completions/_helm
+cat <<-EOF >> ~/.zshrc
+#######################################################
+fpath=(~/.zsh/completions $fpath)
+
+autoload -Uz compinit
+compinit
+EOF
 ```
 </details>
 
