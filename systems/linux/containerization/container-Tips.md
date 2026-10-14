@@ -1,4 +1,4 @@
-# Find IP from inside container :
+# Find IPv4 from inside container :
 ```shell
 hostname -I
 # OR
