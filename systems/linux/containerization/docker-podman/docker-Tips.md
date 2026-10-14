@@ -11,3 +11,7 @@ sudo docker stats --no-stream | { read -r header; printf '%s\n' "$header"; sort 
 sudo docker network ls -f driver=bridge | awk '!/^NETWORK/{print$2;exit}'
 sudo docker network inspect bridge | jq -r '.[].IPAM.Config[].Subnet'
 ```
+# Find IP from inside container :
+```shell
+getent ahosts $HOSTNAME
+```
