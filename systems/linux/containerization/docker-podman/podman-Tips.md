@@ -8,7 +8,7 @@ Dans mon ~/.profile
 ```shell
 #podman login --get-login $HARBOR_REPOS 2>/dev/null || podman login $HARBOR_REPOS -u $HARBOR_USER
 jq .auths.\"$HARBOR_REPOS\".auth ${XDG_RUNTIME_DIR}/containers/auth.json &>/dev/null || { echo "=> podman login to $HARBOR_REPOS ...";podman login $HARBOR_REPOS -u $HARBOR_USER; }
-mkdir -pv $HOME/.config/containers/
+mkdir -pv $HOME/.config/containers/ $HOME/.kube/
 
 ```
 Definir la liste des repo dans $HOME/.config/containers/registries.conf :
