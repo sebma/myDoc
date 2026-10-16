@@ -1,4 +1,4 @@
-Downgrade du flatpak de Flameshot en v13.3 à cause du bug Screenshot portal timed out after 30 seconds · Issue #4639 · flameshot-org/flameshot en attendant la v15.0 qui inclus le correctif :
+Downgrade du flatpak de Flameshot en v13.3 à cause du [bug Screenshot portal timed out after 30 seconds · Issue #4639](https://github.com/flameshot-org/flameshot/issues/4639) · flameshot-org/flameshot en attendant [la v15.0 qui inclus le correctif](https://github.com/flameshot-org/flameshot/pull/4826) :
 ```shell
 flatpak remote-info flathub org.flameshot.Flameshot --log
 flatpak remote-info flathub org.flameshot.Flameshot --log | grep -1 v13.3
