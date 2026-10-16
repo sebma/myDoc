@@ -10,3 +10,12 @@ Dans mon ~/.profile
 jq .auths.\"$HARBOR_REPOS\".auth ${XDG_RUNTIME_DIR}/containers/auth.json &>/dev/null || podman login $HARBOR_REPOS -u $HARBOR_USER
 
 ```
+Definir la liste des repo dans $HOME/.config/containers/registries.conf :
+```shell
+mkdir -pv $HOME/.config/containers/
+grep "docker.io" $HOME/.config/containers/registries.conf -q || echo 'unqualified-search-registries = ["docker.io"]' >> $HOME/.config/containers/registries.conf
+```
+Lister les registries utilises :
+```shell
+podman info | yq .registries.search[]
+```
