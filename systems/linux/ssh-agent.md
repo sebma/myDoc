@@ -27,7 +27,7 @@ EOF
 ```
 </details>
 
-## Method 2
+## Method 2 : Recommended
 <details>
 <summary>Create a ssh-agent systemd service in userland</summary>
 
