@@ -94,7 +94,7 @@ cd
 HISTSIZE=50000
 HISTFILESIZE=100000
 for tool in kubectl kubectl-vsphere helm kind;do
-	which $tool >/dev/null && source <($tool completion $(basename $SHELL))
+	command -v $tool >/dev/null && source <($tool completion $(basename $SHELL))
 done
 mkdir -pv $HOME/.config/containers/
 EOF
