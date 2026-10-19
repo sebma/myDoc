@@ -93,11 +93,10 @@ cat <<-EOF >> ~/.profile
 cd
 HISTSIZE=50000
 HISTFILESIZE=100000
-which kubectl >/dev/null && source <(kubectl completion $(basename $SHELL))
-which kubectl-vsphere >/dev/null && source <(kubectl-vsphere completion $(basename $SHELL))
-which helm >/dev/null && source <(helm completion $(basename $SHELL))
-which kind >/dev/null && source <(kind completion $(basename $SHELL))
-mkdir -pv $HOME/.config/containers/ $HOME/.kube/
+for tool in kubectl kubectl-vsphere helm kind;do
+	which $tool >/dev/null && source <($tool completion $(basename $SHELL))
+done
+mkdir -pv $HOME/.config/containers/
 EOF
 ```
 ### Configure kctl bash aliases
