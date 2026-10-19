@@ -94,7 +94,7 @@ cd
 HISTSIZE=50000
 HISTFILESIZE=100000
 for tool in kubectl kubectl-vsphere helm kind;do
-	command -v $tool >/dev/null && source <($tool completion $(basename $SHELL))
+	command -v $tool >/dev/null && source <($tool completion ${SHELL/*\/})
 done
 mkdir -pv $HOME/.config/containers/
 EOF
@@ -121,7 +121,7 @@ cat <<-EOF >> ~/.zshrc
 #######################################################
 #fpath=(~/.zsh/completions $fpath)
 for tool in kubectl kubectl-vsphere helm kind;do
-        command -v $tool >/dev/null && source <($tool completion $(basename $SHELL))
+        command -v $tool >/dev/null && source <($tool completion ${SHELL/*\/})
 done
 autoload -Uz compinit
 compinit
