@@ -119,8 +119,10 @@ kubectl-vsphere completion zsh >> ~/.zsh/completions/_kubectl-vsphere
 helm completion zsh > ~/.zsh/completions/_helm
 cat <<-EOF >> ~/.zshrc
 #######################################################
-fpath=(~/.zsh/completions $fpath)
-
+#fpath=(~/.zsh/completions $fpath)
+for tool in kubectl kubectl-vsphere helm kind;do
+        command -v $tool >/dev/null && source <($tool completion $(basename $SHELL))
+done
 autoload -Uz compinit
 compinit
 EOF
