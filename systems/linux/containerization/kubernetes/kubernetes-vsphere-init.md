@@ -88,7 +88,7 @@ sudo tar -C /usr/local/bin/ -xvf sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz s
 
 ### Configure kubectl/helm completion in Bash Profile
 ```shell
-cat <<-EOF >> ~/.profile
+cat >> ~/.profile <<-EOF
 #######################################################
 cd
 HISTSIZE=50000
@@ -101,7 +101,7 @@ EOF
 ```
 ### Configure kctl bash aliases
 ```shell
-cat <<-EOF >> ~/.bash_aliases
+cat >> ~/.bash_aliases <<-EOF
 alias kctl=kubectl;complete -F __start_kubectl kctl
 alias kctl-vsphere=kubectl-vsphere;complete -F __start_kubectl-vsphere kctl-vsphere
 EOF
@@ -117,7 +117,7 @@ mkdir -pv ~/.zsh/completions
 kubectl completion zsh > ~/.zsh/completions/_kubectl
 kubectl-vsphere completion zsh >> ~/.zsh/completions/_kubectl-vsphere
 helm completion zsh > ~/.zsh/completions/_helm
-cat <<-EOF >> ~/.zshrc
+cat >> ~/.zshrc <<-EOF
 #######################################################
 #fpath=(~/.zsh/completions $fpath)
 for tool in kubectl kubectl-vsphere helm kind;do
