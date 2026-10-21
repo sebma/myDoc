@@ -19,3 +19,8 @@ grep "docker.io" $HOME/.config/containers/registries.conf -q 2>/dev/null || echo
 ```shell
 podman info | yq .registries.search[]
 ```
+# Stockage des images podman :
+```shell
+podmanStorage=$(podman info | yq .store.graphRoot)
+du -sh $podmanStorage
+```
