@@ -1,4 +1,4 @@
-# Disable a 882 format APT repo without removing it
+# Disable a RFC822 format APT repo without removing it
 
 Disable ondrej Launchpad PPA repo for example :
 ```shell
