@@ -2,5 +2,5 @@
 
 Disable ondrej Launchpad PPA repo for example :
 ```shell
-sudo sed -i '/^Signed-By:/a Enabled: no' /etc/apt/sources.list.d/ondrej-ubuntu-php-$(lsb_release -sc).sources
+grep 'Enabled: no' /etc/apt/sources.list.d/ondrej-ubuntu-php-$(lsb_release -sc).sources -q || sudo sed -i '/^Signed-By:/a Enabled: no' /etc/apt/sources.list.d/ondrej-ubuntu-php-$(lsb_release -sc).sources
 ```
