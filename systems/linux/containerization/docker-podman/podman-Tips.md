@@ -8,7 +8,7 @@ podman network inspect podman | jq -r .[].subnets[].subnet
 ```shell
 #podman login --get-login $HARBOR_REPOS 2>/dev/null || podman login $HARBOR_REPOS -u $HARBOR_USER
 mkdir -pv $HOME/.config/containers/
-# ADD The podman login into the gnome key ring once and for all with this command :
+# ADD The podman login Token into the gnome key ring once and for all with this command :
 # secret-tool store --label="Podman Registry Hub token" service podman registry $HARBOR_REPOS username $HARBOR_USER
 if ! jq .auths.\"$HARBOR_REPOS\".auth ${XDG_RUNTIME_DIR}/containers/auth.json &>/dev/null;then
     echo "=> podman login to $HARBOR_REPOS ..."
