@@ -55,7 +55,7 @@ done
 ```shell
 TSC_ClusterIP=172.16.0.1 # A ADAPTER
 for package in wget unzip;do
-	which $package >/dev/null || sudo apt install package -Vy
+	which $package >/dev/null || sudo apt install $package -Vy
 dne
 
 which dh_bash-completion >/dev/null || sudo apt install bash-completion -Vy
