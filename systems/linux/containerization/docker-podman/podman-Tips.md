@@ -24,6 +24,8 @@ jq . $HOME/.config/containers/auth.json
 #secret-tool store --label="Podman Registry Hub token" service podman registry $HARBOR_REPOS username $HARBOR_USER
 read -s -p "Enter repo password:" myToken
 jq -n --arg s "$HARBOR_REPOS" --arg u "$HARBOR_USER" --arg p "$myToken" '{ServerURL:$s,Username:$u,Secret:$p}' | docker-credential-secretservice store
+unset myToken
+docker-credential-secretservice list | grep $HARBOR_REPOS
 ```
 # Dans mon `~/.profile`
 ```shell
