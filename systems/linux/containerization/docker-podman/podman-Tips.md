@@ -15,6 +15,8 @@ test -f $podmanAuthConfigFile && ! test -s $podmanAuthConfigFile && echo '{}' > 
 for registry in docker.io quay.io ghcr.io $HARBOR_REPOS;do
     jq --arg reg "$registry" '.credHelpers |= (. // {}) | .credHelpers[$reg] = "secretservice"' $podmanAuthConfigFile | sponge $podmanAuthConfigFile
 done
+# POUR CHECK
+jq . $HOME/.config/containers/auth.json
 ```
 # Ajout des creds du registry : a faire une seule fois
 ```shell
