@@ -59,6 +59,7 @@ for package in wget unzip dlocate plocate;do
 dne
 
 which dh_bash-completion >/dev/null || sudo apt install bash-completion -Vy
+which gnutls-cli >/dev/null || sudo apt install gnutls-bin -Vy
 which sponge >/dev/null || sudo apt install moreutils -Vy
 
 wget -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/$(uname -s | tr [:upper:] [:lower:])-amd64/vsphere-plugin.zip
