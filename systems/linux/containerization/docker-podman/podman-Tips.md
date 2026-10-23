@@ -13,6 +13,9 @@ mkdir -pv $HOME/.config/containers/
 
 podmanAuthConfigFile=${XDG_CONFIG_HOME:-$HOME/.config}/containers/auth.json
 test -f $podmanAuthConfigFile && ! test -s $podmanAuthConfigFile && echo '{}' > $podmanAuthConfigFile
+for registry in docker.io quay.io ghcr.io;do
+    jq --arg reg "$registry" '.credHelpers |= (. // {}) | .credHelpers[$reg] = "secretservice"' $podmanAuthConfigFile | sponge $podmanAuthConfigFile
+done
 
 if ! jq -r .auths.\"$HARBOR_REPOS\".auth ${XDG_RUNTIME_DIR}/containers/auth.json &>/dev/null;then
     echo "=> podman login to $HARBOR_REPOS ..."
