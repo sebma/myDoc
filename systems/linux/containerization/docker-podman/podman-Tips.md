@@ -16,7 +16,10 @@ for registry in docker.io quay.io ghcr.io $HARBOR_REPOS;do
     jq --arg reg "$registry" '.credHelpers |= (. // {}) | .credHelpers[$reg] = "secretservice"' $podmanAuthConfigFile | sponge $podmanAuthConfigFile
 done
 ```
-
+# Ajout des creds du registry : a faire une seule fois
+```shell
+jq -n --arg s "$HARBOR_REPOS" --arg u "$HARBOR_USER" --arg p "$myToken" '{ServerURL:$s,Username:$u,Secret:$p}' | docker-credential-secretservice store
+```
 # Dans mon `~/.profile`
 ```shell
 #podman login --get-login $HARBOR_REPOS 2>/dev/null || podman login $HARBOR_REPOS -u $HARBOR_USER
