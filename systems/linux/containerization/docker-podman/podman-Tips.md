@@ -21,6 +21,7 @@ jq . $HOME/.config/containers/auth.json
 ```
 # Ajout des creds du registry : a faire une seule fois
 ```shell
+read -s -p "Enter repo password:" myToken
 jq -n --arg s "$HARBOR_REPOS" --arg u "$HARBOR_USER" --arg p "$myToken" '{ServerURL:$s,Username:$u,Secret:$p}' | docker-credential-secretservice store
 ```
 # Dans mon `~/.profile`
