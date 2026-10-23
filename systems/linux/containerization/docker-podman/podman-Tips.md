@@ -13,6 +13,7 @@ secret-tool store --label="Podman Registry Hub token" service podman registry $H
 podmanAuthConfigFile=${XDG_CONFIG_HOME:-$HOME/.config}/containers/auth.json
 test -f $podmanAuthConfigFile && ! test -s $podmanAuthConfigFile && echo '{}' > $podmanAuthConfigFile
 
+# Facultatif
 for registry in docker.io quay.io ghcr.io $HARBOR_REPOS;do
     jq --arg reg "$registry" '.credHelpers |= (. // {}) | .credHelpers[$reg] = "secretservice"' $podmanAuthConfigFile | sponge $podmanAuthConfigFile
 done
@@ -30,8 +31,9 @@ jq -n --arg s "$HARBOR_REPOS" --arg u "$HARBOR_USER" --arg p "$myToken" '{Server
 mkdir -pv $HOME/.config/containers/
 
 if ! jq -r .auths.\"$HARBOR_REPOS\".auth ${XDG_RUNTIME_DIR}/containers/auth.json &>/dev/null;then
-    echo "=> podman login to $HARBOR_REPOS ..."
-    secret-tool lookup service podman registry $HARBOR_REPOS username $HARBOR_USER | podman login --username $HARBOR_USER $HARBOR_REPOS --password-stdin
+    :
+    # echo "=> podman login to $HARBOR_REPOS ..."
+    # secret-tool lookup service podman registry $HARBOR_REPOS username $HARBOR_USER | podman login --username $HARBOR_USER $HARBOR_REPOS --password-stdin
     # VOIR AUSSI LE "docker-credential-secretservice"
 fi
 
