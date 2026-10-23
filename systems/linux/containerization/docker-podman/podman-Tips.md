@@ -32,12 +32,13 @@ docker-credential-secretservice list | grep $HARBOR_REPOS
 #podman login --get-login $HARBOR_REPOS 2>/dev/null || podman login $HARBOR_REPOS -u $HARBOR_USER
 mkdir -pv $HOME/.config/containers/
 
-if ! jq -r .auths.\"$HARBOR_REPOS\".auth ${XDG_RUNTIME_DIR}/containers/auth.json &>/dev/null;then
+# Si on utilise Gnome keyring avec "secret-tool"
+#if which secret-tool &>/dev/null && ! jq -r .auths.\"$HARBOR_REPOS\".auth ${XDG_RUNTIME_DIR}/containers/auth.json &>/dev/null;then
     :
     # echo "=> podman login to $HARBOR_REPOS ..."
     # secret-tool lookup service podman registry $HARBOR_REPOS username $HARBOR_USER | podman login --username $HARBOR_USER $HARBOR_REPOS --password-stdin
     # VOIR AUSSI LE "docker-credential-secretservice"
-fi
+#fi
 
 ```
 # Definir la liste des repo dans $HOME/.config/containers/registries.conf :
