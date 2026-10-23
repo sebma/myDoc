@@ -7,6 +7,7 @@ podman network inspect podman | jq -r .[].subnets[].subnet
 # Parametrage
 ```shell
 # ADD The podman login Token into the gnome key ring once and for all with this command :
+sudo apt install -V golang-docker-credential-helpers libsecret-tools
 secret-tool store --label="Podman Registry Hub token" service podman registry $HARBOR_REPOS username $HARBOR_USER
 
 podmanAuthConfigFile=${XDG_CONFIG_HOME:-$HOME/.config}/containers/auth.json
