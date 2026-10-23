@@ -164,7 +164,8 @@ helm completion powershell > ~/.kube/completions/_helm-completion.ps1
 ```
 </details>
 
-## Kubernetes vSphere Login
+<details>
+<summary>Kubernetes vSphere Login</summary>
 
 Then you can login to your Supervisor Cluster and then choose a context :
 ```shell
@@ -196,6 +197,10 @@ The `kubectl-vsphere login` CLI options :
 ```shell
 kubectl-vsphere login --help
 ```
+</details>
+
+<details>
+<summary>Appendices</summary>
 
 See :
 - [Getting started | Kubernetes](https://kubernetes.io/docs/setup)
@@ -203,5 +208,7 @@ See :
 - [kubectl completion | Kubernetes](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_completion/)
 - [Connect to a TKG Service Cluster as a vCenter Single Sign-On User with Kubectl](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-supervisor/8-0/using-tkg-service-with-vsphere-supervisor/configuring-identity-and-access-for-tkg-service-clusters/connecting-to-tkg-service-clusters-using-vcenter-sso-authentication/connect-to-a-tkg-service-cluster-as-a-vcenter-single-sign-on-user-with-kubectl.html)
 - [VMware Lab Platform](https://labs.hol.vmware.com/HOL/catalog)
+</details>
+
 
 CNCF Applications Reference Framework : [CNCF Landscape](https://landscape.cncf.io/)
