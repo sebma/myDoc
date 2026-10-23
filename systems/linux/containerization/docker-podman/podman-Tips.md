@@ -4,18 +4,23 @@ podman network ls -n -f driver=bridge | awk '{print$2;exit}'
 podman network inspect podman | jq -r .[].subnets[].subnet
 
 ```
+# Parametrage
+```shell
+# ADD The podman login Token into the gnome key ring once and for all with this command :
+secret-tool store --label="Podman Registry Hub token" service podman registry $HARBOR_REPOS username $HARBOR_USER
+
+podmanAuthConfigFile=${XDG_CONFIG_HOME:-$HOME/.config}/containers/auth.json
+test -f $podmanAuthConfigFile && ! test -s $podmanAuthConfigFile && echo '{}' > $podmanAuthConfigFile
+
+for registry in docker.io quay.io ghcr.io $HARBOR_REPOS;do
+    jq --arg reg "$registry" '.credHelpers |= (. // {}) | .credHelpers[$reg] = "secretservice"' $podmanAuthConfigFile | sponge $podmanAuthConfigFile
+done
+```
+
 # Dans mon `~/.profile`
 ```shell
 #podman login --get-login $HARBOR_REPOS 2>/dev/null || podman login $HARBOR_REPOS -u $HARBOR_USER
 mkdir -pv $HOME/.config/containers/
-# ADD The podman login Token into the gnome key ring once and for all with this command :
-# secret-tool store --label="Podman Registry Hub token" service podman registry $HARBOR_REPOS username $HARBOR_USER
-
-podmanAuthConfigFile=${XDG_CONFIG_HOME:-$HOME/.config}/containers/auth.json
-test -f $podmanAuthConfigFile && ! test -s $podmanAuthConfigFile && echo '{}' > $podmanAuthConfigFile
-for registry in docker.io quay.io ghcr.io;do
-    jq --arg reg "$registry" '.credHelpers |= (. // {}) | .credHelpers[$reg] = "secretservice"' $podmanAuthConfigFile | sponge $podmanAuthConfigFile
-done
 
 if ! jq -r .auths.\"$HARBOR_REPOS\".auth ${XDG_RUNTIME_DIR}/containers/auth.json &>/dev/null;then
     echo "=> podman login to $HARBOR_REPOS ..."
