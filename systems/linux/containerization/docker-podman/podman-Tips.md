@@ -7,13 +7,13 @@ podman network inspect podman | jq -r .[].subnets[].subnet
 # Parametrage
 ```shell
 # ADD The podman login Token into the gnome key ring once and for all with this command :
-sudo apt install -V golang-docker-credential-helpers libsecret-tools
-secret-tool store --label="Podman Registry Hub token" service podman registry $HARBOR_REPOS username $HARBOR_USER
+sudo apt install -V golang-docker-credential-helpers
+#sudo apt install -V libsecret-tools
 
 podmanAuthConfigFile=${XDG_CONFIG_HOME:-$HOME/.config}/containers/auth.json
-test -f $podmanAuthConfigFile && ! test -s $podmanAuthConfigFile && echo '{}' > $podmanAuthConfigFile
 
 # Facultatif
+test -f $podmanAuthConfigFile && ! test -s $podmanAuthConfigFile && echo '{}' > $podmanAuthConfigFile
 for registry in docker.io quay.io ghcr.io $HARBOR_REPOS;do
     jq --arg reg "$registry" '.credHelpers |= (. // {}) | .credHelpers[$reg] = "secretservice"' $podmanAuthConfigFile | sponge $podmanAuthConfigFile
 done
@@ -22,6 +22,7 @@ jq . $HOME/.config/containers/auth.json
 ```
 # Ajout des creds du registry : a faire une seule fois
 ```shell
+#secret-tool store --label="Podman Registry Hub token" service podman registry $HARBOR_REPOS username $HARBOR_USER
 read -s -p "Enter repo password:" myToken
 jq -n --arg s "$HARBOR_REPOS" --arg u "$HARBOR_USER" --arg p "$myToken" '{ServerURL:$s,Username:$u,Secret:$p}' | docker-credential-secretservice store
 ```
