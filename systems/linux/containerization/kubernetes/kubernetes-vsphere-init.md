@@ -31,7 +31,7 @@ podman network inspect podman 2>/dev/null | jq -r '.[].subnets[].subnet'
 ```shell
 $TSC_ClusterIP=172.16.0.1 # A ADAPTER
 which brew >/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install iproute2 curl wget jq yq gnutls
+brew install iproute2 curl wget jq yq moreutils gnutls
 brew install helm k9s kubectl kubectl-tree kubectx kubetui podman podman-tui sofka
 brew install kubent 
 brew install --cask vscodium pulsar
@@ -54,9 +54,12 @@ done
 ### Kubernetes vSphere tools for Linux/WSL
 ```shell
 TSC_ClusterIP=172.16.0.1 # A ADAPTER
-which wget >/dev/null || sudo apt install wget -Vy
-which unzip >/dev/null || sudo apt install unzip -Vy
+for package in wget unzip;do
+	which $package >/dev/null || sudo apt install package -Vy
+dne
+
 which dh_bash-completion >/dev/null || sudo apt install bash-completion -Vy
+which sponge >/dev/null || sudo apt install moreutils -Vy
 
 wget -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/$(uname -s | tr [:upper:] [:lower:])-amd64/vsphere-plugin.zip
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl bin/kubectl-vsphere
