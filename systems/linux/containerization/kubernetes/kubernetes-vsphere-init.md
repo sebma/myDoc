@@ -54,7 +54,7 @@ done
 ### Kubernetes vSphere tools for Linux/WSL
 ```shell
 TSC_ClusterIP=172.16.0.1 # A ADAPTER
-for package in wget unzip dlocate plocate;do
+for package in wget unzip dlocate plocate podman podman-compose;do
 	which $package >/dev/null || sudo apt install $package -Vy
 dne
 
