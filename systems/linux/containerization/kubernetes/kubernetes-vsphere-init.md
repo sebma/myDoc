@@ -140,7 +140,7 @@ EOF
 <details>
 <summary>Environnement de travail</summary>
 
-Install [vscodium](https://github.com/VSCodium/vscodium) || [Pulsar](https://github.com/pulsar-edit/pulsar) + [GitHub Desktop](https://desktop.github.com/download/) || [Gitnuro](https://github.com/JetpackDuba/Gitnuro) || [gitahead](https://github.com/gitahead/gitahead)
+Install ( [vscodium](https://github.com/VSCodium/vscodium) || [Pulsar](https://github.com/pulsar-edit/pulsar) ) + ( [GitHub Desktop](https://desktop.github.com/download/) || [Gitnuro](https://github.com/JetpackDuba/Gitnuro) || [gitahead](https://github.com/gitahead/gitahead) )
 
 </details>
 
