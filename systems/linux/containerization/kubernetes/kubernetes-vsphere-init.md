@@ -137,6 +137,11 @@ EOF
 ### ssh-agent configuration for Linux/WSL
 [ssh-agent configuration](../../ssh-agent.md)
 
+<details>
+<summary>Environnement de travail</summary>
+Install [vscodium](https://github.com/VSCodium/vscodium) || [Pulsar](https://github.com/pulsar-edit/pulsar) + [GitHub Desktop](https://desktop.github.com/download/) || [Gitnuro](https://github.com/JetpackDuba/Gitnuro) || [gitahead](https://github.com/gitahead/gitahead)
+
+</details>
 
 <details>
 <summary>Kubernetes vSphere tool requirements for Windows clients</summary>
