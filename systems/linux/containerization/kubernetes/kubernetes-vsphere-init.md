@@ -31,7 +31,7 @@ podman network inspect podman 2>/dev/null | jq -r '.[].subnets[].subnet'
 ```shell
 $TSC_ClusterIP=172.16.0.1 # A ADAPTER
 which brew >/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install iproute2 curl wget jq yq moreutils gnutls
+brew install iproute2 curl wget jq yq moreutils gnutls netcat
 brew install helm k9s kubectl kubectl-tree kubectx kubetui podman podman-compose podman-tui sofka
 brew install kubent 
 brew install --cask vscodium pulsar
@@ -61,6 +61,7 @@ dne
 which dh_bash-completion >/dev/null || sudo apt install bash-completion -Vy
 which gnutls-cli >/dev/null || sudo apt install gnutls-bin -Vy
 which sponge >/dev/null || sudo apt install moreutils -Vy
+which nc.openbsd >/dev/null || sudo apt install netcat-openbsd -Vy
 
 wget -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/$(uname -s | tr [:upper:] [:lower:])-amd64/vsphere-plugin.zip
 sudo unzip -d /usr/local/ vsphere-plugin.zip bin/kubectl bin/kubectl-vsphere
@@ -143,7 +144,7 @@ EOF
 ```pwsh
 $TSC_ClusterIP=172.16.0.1 # A ADAPTER
 gsudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
-gsudo scoop install -g curl wget jq yq putty-cac gnutls
+gsudo scoop install -g curl wget jq yq putty-cac gnutls netcat
 gsudo scoop install -g podman podman-tui kubectl kubeadm kubectx kubens k9s helm kubetui
 gsudo scoop install -g kubent
 gsudo choco install -y vscode vscodium pulsar
