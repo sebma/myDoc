@@ -32,8 +32,8 @@ podman network inspect podman 2>/dev/null | jq -r '.[].subnets[].subnet'
 ```shell
 git config --global core.editor vim
 git config --global credential.helper "cache --timeout=86400"
-# Puis tout mes alias git :)
-grep -w gitLocalUndelete ~/.bash_aliases || echo 'alias gitLocalUndelete="\git ls-files -d | grep . && \git ls-files -d | \xargs git checkout-index"' >> ~/.bash_aliases
+git config --global alias.local-undelete '!git ls-files -d | grep . && git ls-files -d | xargs git checkout-index'
+# Puis tout mes autres alias git :-)
 git config user.name SebM
 git config user.email $myEmail
 git config -l | grep user # Pour vérifier
