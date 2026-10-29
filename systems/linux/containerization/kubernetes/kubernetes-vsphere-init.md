@@ -25,6 +25,23 @@ podman network inspect podman 2>/dev/null | jq -r '.[].subnets[].subnet'
 
 </details>
 
+
+<details>
+<summary>Ma config git</summary>
+
+```shell
+git config --global core.editor vim
+git config --global credential.helper "cache --timeout=86400"
+# Puis tout mes alias git :)
+grep -w gitLocalUndelete ~/.bash_aliases || echo 'alias gitLocalUndelete="\git ls-files -d | grep . && \git ls-files -d | \xargs git checkout-index"' >> ~/.bash_aliases
+git config user.name SebM
+git config user.email $myEmail
+git config -l | grep user # Pour vérifier
+git config -e # Pour editer a la mano
+```
+
+</details>
+
 <details>
 <summary>Kubernetes vSphere tool requirements for macOS clients</summary>
 
