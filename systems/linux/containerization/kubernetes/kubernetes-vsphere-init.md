@@ -49,8 +49,8 @@ git config -e # Pour editer a la mano
 $TSC_ClusterIP=172.16.0.1 # A ADAPTER
 which brew >/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install iproute2 curl wget jq yq moreutils gnutls netcat
-brew install helm k9s kubectl kubectl-tree kubectx kubetui podman podman-compose podman-tui sofka
-brew install kubent 
+brew install helm k9s kubectl kubectl-tree kubectx kubetui podman podman-compose podman-tui sofka 
+brew install kubent kompose
 brew install --cask vscodium pulsar
 
 wget -c --no-check-certificate -nv https://$TSC_ClusterIP/wcp/plugin/$(uname -s | tr [:upper:] [:lower:])-amd64/vsphere-plugin.zip
@@ -101,7 +101,11 @@ fi
 
 wget -c https://github.com/nklmilojevic/sofka/releases/download/v0.28.1/sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz
 sudo tar -C /usr/local/bin/ -xvf sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz sofka
- 
+
+curl -L https://github.com/kubernetes/kompose/releases/latest/download/kompose-linux-amd64 -o kompose
+sudo install -vpm 755 kompose /usr/local/bin/
+rm -f kompose
+
 ```
 </details>
 
@@ -169,7 +173,7 @@ $TSC_ClusterIP=172.16.0.1 # A ADAPTER
 gsudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
 gsudo scoop install -g curl wget jq yq putty-cac gnutls netcat
 gsudo scoop install -g podman podman-tui kubectl kubeadm kubectx kubens k9s helm kubetui
-gsudo scoop install -g kubent
+gsudo scoop install -g kubent kompose
 gsudo choco install -y vscode vscodium pulsar
 gsudo wget.exe -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
 Expand-Archive vsphere-plugin.zip
@@ -232,6 +236,7 @@ kubectl-vsphere login --help
 
 See :
 - [Getting started | Kubernetes](https://kubernetes.io/docs/setup)
+- [Download Kubernetes | Kubernetes](https://kubernetes.io/releases/download/#binaries)
 - [Install the Kubernetes CLI Tools for vSphere](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-supervisor/8-0/using-tkg-service-with-vsphere-supervisor/configuring-identity-and-access-for-tkg-service-clusters/installing-cli-tools-for-tkg-service-clusters/install-the-kubernetes-cli-tools-for-vsphere.html)
 - [kubectl completion | Kubernetes](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_completion/)
 - [Connect to a TKG Service Cluster as a vCenter Single Sign-On User with Kubectl](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-supervisor/8-0/using-tkg-service-with-vsphere-supervisor/configuring-identity-and-access-for-tkg-service-clusters/connecting-to-tkg-service-clusters-using-vcenter-sso-authentication/connect-to-a-tkg-service-cluster-as-a-vcenter-single-sign-on-user-with-kubectl.html)
