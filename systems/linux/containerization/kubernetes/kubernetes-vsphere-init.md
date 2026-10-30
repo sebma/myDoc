@@ -241,6 +241,7 @@ See :
 - [kubectl completion | Kubernetes](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_completion/)
 - [Connect to a TKG Service Cluster as a vCenter Single Sign-On User with Kubectl](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-supervisor/8-0/using-tkg-service-with-vsphere-supervisor/configuring-identity-and-access-for-tkg-service-clusters/connecting-to-tkg-service-clusters-using-vcenter-sso-authentication/connect-to-a-tkg-service-cluster-as-a-vcenter-single-sign-on-user-with-kubectl.html)
 - [VMware Lab Platform](https://labs.hol.vmware.com/HOL/catalog)
+- [Kompose - Convert your Docker Compose file to Kubernetes or OpenShift](https://kompose.io/)
 
 CNCF Applications Reference Framework : [CNCF Landscape](https://landscape.cncf.io/)
 
