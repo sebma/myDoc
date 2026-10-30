@@ -102,7 +102,7 @@ fi
 wget -c https://github.com/nklmilojevic/sofka/releases/download/v0.28.1/sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz
 sudo tar -C /usr/local/bin/ -xvf sofka-v0.28.1-x86_64-unknown-linux-gnu.tar.gz sofka
 
-curl -L https://github.com/kubernetes/kompose/releases/latest/download/kompose-linux-amd64 -o kompose
+curl -sLS https://github.com/kubernetes/kompose/releases/latest/download/kompose-linux-amd64 -o kompose
 sudo install -vpm 755 kompose /usr/local/bin/
 rm -f kompose
 
