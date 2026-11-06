@@ -50,7 +50,7 @@ $TSC_ClusterIP=172.16.0.1 # A ADAPTER
 which brew >/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install iproute2 curl wget jq yq moreutils gnutls netcat
 brew install helm k9s kubectl kubectl-tree kubectx kubetui podman podman-compose podman-tui sofka
-brew install kubent kompose
+brew install kubent kompose tanzu-cli
 brew install --cask vscodium pulsar
 
 wget -c --no-check-certificate -nv https://$TSC_ClusterIP/wcp/plugin/$(uname -s | tr [:upper:] [:lower:])-amd64/vsphere-plugin.zip
@@ -119,7 +119,7 @@ cat >> ~/.profile <<-EOF
 cd
 HISTSIZE=50000
 HISTFILESIZE=100000
-for tool in kubectl kubectl-vsphere helm kind;do
+for tool in kubectl kubectl-vsphere helm kind tanzu;do
 	command -v $tool >/dev/null && source <($tool completion ${SHELL/*\/})
 done
 mkdir -pv $HOME/.config/containers/
@@ -170,17 +170,18 @@ Install ( [vscodium](https://github.com/VSCodium/vscodium) || [Pulsar](https://g
 
 ```pwsh
 $TSC_ClusterIP=172.16.0.1 # A ADAPTER
-gsudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
-gsudo scoop install -g curl wget jq yq putty-cac gnutls netcat
-gsudo scoop install -g podman podman-tui kubectl kubeadm kubectx kubens k9s helm kubetui
-gsudo scoop install -g kubent kompose
-gsudo choco install -y vscode vscodium pulsar
-gsudo wget.exe -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
+$sudo = "sudo.ps1"
+$sudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
+$sudo scoop install -g curl wget jq yq putty-cac gnutls netcat
+$sudo scoop install -g podman podman-tui kubectl kubeadm kubectx kubens k9s helm kubetui
+$sudo scoop install -g kubent kompose
+$sudo choco install -y vscode vscodium pulsar
+$sudo wget.exe -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
 Expand-Archive vsphere-plugin.zip
-gsudo move .\bin\kubectl-vsphere.exe "$ENV:windir/system32"
+$sudo move .\bin\kubectl-vsphere.exe "$ENV:windir/system32"
 rm bin\kubectl.exe vsphere-plugin.zip
 rmdir bin
-
+$sudo choco install -y tanzu-cli
 ```
 </details>
 
