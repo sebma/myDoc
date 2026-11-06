@@ -106,6 +106,10 @@ curl -sLS https://github.com/kubernetes/kompose/releases/latest/download/kompose
 sudo install -vpm 755 kompose /usr/local/bin/
 rm -f kompose
 
+curl -fsSL https://storage.googleapis.com/tanzu-cli-installer-packages/keys/TANZU-PACKAGING-GPG-RSA-KEY.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/tanzu-archive-keyring.gpg
+echo "deb [signed-by=/etc/apt/keyrings/tanzu-archive-keyring.gpg] https://storage.googleapis.com/tanzu-cli-installer-packages/apt tanzu-cli-jessie main" | sudo tee /etc/apt/sources.list.d/tanzu.list
+sudo apt update
+sudo apt install -V tanzu-cli -y
 ```
 </details>
 
