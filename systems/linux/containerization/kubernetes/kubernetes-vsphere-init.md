@@ -50,6 +50,7 @@ $TSC_ClusterIP=172.16.0.1 # A ADAPTER
 which brew >/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install iproute2 curl wget jq yq moreutils gnutls netcat
 brew install helm k9s kubectl kubectl-tree kubectx kubetui podman podman-compose podman-tui sofka
+brew install fluxcd/tap/flux
 brew install kubent kompose tanzu-cli
 brew install --cask vscodium pulsar
 
@@ -106,6 +107,8 @@ curl -sLS https://github.com/kubernetes/kompose/releases/latest/download/kompose
 sudo install -vpm 755 kompose /usr/local/bin/
 rm -f kompose
 
+curl -s https://fluxcd.io/install.sh | sudo bash
+
 curl -fsSL https://storage.googleapis.com/tanzu-cli-installer-packages/keys/TANZU-PACKAGING-GPG-RSA-KEY.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/tanzu-archive-keyring.gpg
 echo "deb [signed-by=/etc/apt/keyrings/tanzu-archive-keyring.gpg] https://storage.googleapis.com/tanzu-cli-installer-packages/apt tanzu-cli-jessie main" | sudo tee /etc/apt/sources.list.d/tanzu.list
 sudo apt update
@@ -123,7 +126,7 @@ cat >> ~/.profile <<-EOF
 cd
 HISTSIZE=50000
 HISTFILESIZE=100000
-for tool in kubectl kubectl-vsphere helm kind tanzu;do
+for tool in flux kubectl kubectl-vsphere helm kind tanzu;do
 	command -v $tool >/dev/null && source <($tool completion ${SHELL/*\/})
 done
 mkdir -pv $HOME/.config/containers/
@@ -178,7 +181,7 @@ $sudo = "sudo.ps1"
 $sudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
 $sudo scoop install -g curl wget jq yq putty-cac gnutls netcat
 $sudo scoop install -g podman podman-tui kubectl kubeadm kubectx kubens k9s helm kubetui
-$sudo scoop install -g kubent kompose
+$sudo scoop install -g kubent kompose flux
 $sudo choco install -y vscode vscodium pulsar
 $sudo wget.exe -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
 Expand-Archive vsphere-plugin.zip
