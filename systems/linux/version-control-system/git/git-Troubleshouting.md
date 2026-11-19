@@ -1,5 +1,5 @@
 # Mismatch de user.name avec le repo remote
-Si vous rencontrez le message suivant lors d'un `git pull` :
+Si vous rencontrez le message suivant lors d'un `git push` :
 ```git
 remote: GitLab: Your git author name is inconsistent with GitLab account name
 To gitlab. com: dsi-company/ops/my-repo.git
