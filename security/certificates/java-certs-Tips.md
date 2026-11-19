@@ -9,14 +9,14 @@ sudo keytool -importcert -trustcacerts -alias Sectigo-Public-Server-Authenticati
 ```shell
 JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 | awk '/java.home/{printf$NF}')
 keyStore=$JAVA_HOME/lib/security/cacerts 
-keytool -list -keystore $keyStore | grep trustedCertEntry
+keytool -list -v -keystore $keyStore | grep trustedCertEntry
 ```
 
 ## To list certificates Aliases, Owner and Issuer Common Names :
 ```shell
 JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 | awk '/java.home/{printf$NF}')
 keyStore=$JAVA_HOME/lib/security/cacerts 
-keytool -list -keystore $keyStore -v | egrep 'Alias|Owner|Issuer'
+keytool -list -v -keystore $keyStore | egrep 'Alias|Owner|Issuer'
 ```
 
 ## Change alias on one certificate on the Java system keystore :
