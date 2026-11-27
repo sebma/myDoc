@@ -48,7 +48,7 @@ git config -e # Pour editer a la mano
 ```shell
 $TSC_ClusterIP=172.16.0.1 # A ADAPTER
 which brew >/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install iproute2 curl wget jq yq moreutils gnutls netcat
+brew install iproute2 curl wget jq yq moreutils gnutls netcat btop fastfetch zed meld
 brew install helm k9s kubectl kubectl-tree kubectx kubetui podman podman-compose podman-tui sofka
 brew install fluxcd/tap/flux
 brew install kubent kompose tanzu-cli
@@ -72,7 +72,7 @@ done
 ### Kubernetes vSphere tools for Linux/WSL
 ```shell
 TSC_ClusterIP=172.16.0.1 # A ADAPTER
-for package in wget unzip dlocate plocate podman podman-compose;do
+for package in wget unzip dlocate plocate btop fastfetch podman podman-compose meld;do
 	which $package >/dev/null || sudo apt install $package -Vy
 dne
 
@@ -90,7 +90,7 @@ for tool in kube-proxy kubeadm kubectl kubectl-convert kubelet mounter;do
 	rm -vf $tool
 done
 
-pkgList="jq yq kubectx"
+pkgList="jq yq kubectx zed"
 for pkg in $pkgList; do which $pkg >/dev/null || sudo snap install "$pkg" --classic;done
 
 which helm || curl -s https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4 | bash
@@ -182,7 +182,7 @@ $sudo scoop bucket add kubetui https://github.com/sarub0b0/scoop-bucket
 $sudo scoop install -g curl wget jq yq putty-cac gnutls netcat
 $sudo scoop install -g podman podman-tui kubectl kubeadm kubectx kubens k9s helm kubetui
 $sudo scoop install -g kubent kompose flux
-$sudo choco install -y vscode vscodium pulsar
+$sudo choco install -y vscode vscodium pulsar zed winmerge
 $sudo wget.exe -c --no-check-certificate https://$TSC_ClusterIP/wcp/plugin/windows-amd64/vsphere-plugin.zip
 Expand-Archive vsphere-plugin.zip
 $sudo move .\bin\kubectl-vsphere.exe "$ENV:windir/system32"
